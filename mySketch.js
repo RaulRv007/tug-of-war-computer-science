@@ -9,6 +9,11 @@ let grade11_math = []
 let questionTime = 10
 let fps = 60
 
+let question = []
+let questionID = 0
+
+let mathQuestion = []
+
 class Player {
 	constructor(x, y, force, velocity, friction) {
 		this.x = x;
@@ -39,17 +44,94 @@ class Player {
 		this.velocity = -this.force
 	}
 }
+
+class Questions{
+  constructor(grade, subject){
+    this.grade = grade
+    this.subject = subject
+  }
+  getQuestions(){
+    if(this.grade == 11){
+      return loadJSON('questions/grade11_math_questions.json')
+    }
+  }
+  genQuestions(){
+    let myQuestion = []
+    if(this.subject == 'math'){
+      let randomKind = floor(random(0, 3))
+      if(randomKind == 0){
+        let a = floor(random(0, 100))
+        let b = floor(random(0, 100))
+        let answer = a+b
+        let anotherOption = floor(random(0, 100))
+        let another1Option = floor(random(0, 100))
+        let another2Option = floor(random(0, 100))
+        if(another1Option == answer || another2Option == answer || anotherOption == answer){
+          let anotherOption = floor(random(0, 100))
+          let another1Option = floor(random(0, 100))
+          let another2Option = floor(random(0, 100))
+        }else{
+          myQuestion.push(`${a} + ${b}`)
+          myQuestion.push(answer)
+          myQuestion.push(another1Option)
+          myQuestion.push(another2Option)
+          myQuestion.push(anotherOption)
+          myQuestion = shuffleArray(myQuestion)
+        }
+        return myQuestion
+        
+      }
+    }
+  }
+}
+class MultipleChoice{
+  constructor(question, x, y, sizeX, sizeY){
+    this.question = question
+    this.x = x
+    this.y = y
+    this.sizeX = sizeX
+    this.sizeY = sizeY
+
+  }
+  drawMultipleChoice(){
+    textSize(this.sizeY/2)
+    rect(this.x, this.y + this.sizeY/2, this.sizeX, this.sizeY)
+    rect(this.x - this.sizeX, this.y - this.sizeY/2, this.sizeX*2, this.sizeY)
+    rect(this.x, this.y + this.sizeY*3/2, this.sizeX, this.sizeY)
+    rect(this.x - this.sizeX, this.y + this.sizeY*3/2, this.sizeX, this.sizeY)
+    rect(this.x - this.sizeX, this.y + this.sizeY/2, this.sizeX, this.sizeY)
+    text(this.question[0], this.x, this.y)
+    text(this.question[1], this.x + this.sizeX/2, this.y + this.sizeY)
+    text(this.question[2], this.x - this.sizeX/2, this.y + this.sizeY)
+    text(this.question[3], this.x - this.sizeX/2, this.y + this.sizeY*2)
+    text(this.question[4], this.x+ this.sizeX/2, this.y + this.sizeY*2)
+  }
+}
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 1; i--) {
+    const j = Math.floor(Math.random() * (i - 1)) + 1; // random index from 1 to i
+    [array[i], array[j]] = [array[j], array[i]];      // swap
+  }
+  return array;
+}
+function preload(){
+  question = new Questions(11, 'math')
+
+}
 function setup() {
+  textAlign(CENTER, CENTER)
   createCanvas(windowWidth, windowHeight)
   background('blue')
   frameRate(fps)
   player1 = new Player(0, 100, 5, 5, 0.95);
   player2 = new Player(100, 100, 5, 5, 0.95);
-  grade11_math = loadJSON('questions/grade11_math_questions.json')
+  mathQuestion = new Questions(11, 'math').genQuestions()
+  print(mathQuestion)
+  
 }
 
 function draw() {
-	clear()
+  clear()
 	print(velocity)
 	player1.draw();
 	player2.draw();
@@ -59,10 +141,16 @@ function draw() {
     questionTime--
   }
   text(questionTime, 100, 100, 100, 100)
+  try{
+    multipleChoice = new MultipleChoice(mathQuestion, 200, 300, 100, 60)
+    multipleChoice.drawMultipleChoice()
+  }catch(error){
+    mathQuestion = new Questions(11, 'math').genQuestions()
+  }
+
   if(questionTime <= 0){
     questionTime = 10
   }
-
 
 
 }
@@ -72,7 +160,9 @@ function keyPressed() {
 		player1.moveRight();
 	} else if (keyCode === 65) {
 		player1.moveLeft();
-	}
+	} else if(keyCode ===32){
+    multipleChoice.drawMultipleChoice()
+  }
 }
 
 /*let velocity = 0;
