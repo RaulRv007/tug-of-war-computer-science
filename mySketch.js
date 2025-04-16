@@ -12,10 +12,19 @@ let fps = 60
 let question = []
 let questionID = 0
 
-let mathQuestion = []
+let mathQuestion1 = []
+let mathQuestion2= []
+
+let multipleChoice1 = []
+let multipleChoice2 = []
+
+let player1Won = false
+let player2Won = false
+
+let wasMousePressed = false
 
 class Player {
-	constructor(x, y, force, velocity, friction) {
+	constructor(x, y, force, velocity, friction, points) {
 		this.x = x;
 		this.y = y;
 		this.width = 50;
@@ -24,6 +33,7 @@ class Player {
 		this.force = force
 		this.velocity = velocity;
 		this.friction = friction;
+    this.points = points
 	}
 	draw(){
 		rect(this.x, this.y, this.width, this.height);
@@ -77,6 +87,8 @@ class Questions{
           myQuestion.push(another2Option)
           myQuestion.push(anotherOption)
           myQuestion = shuffleArray(myQuestion)
+          myQuestion.push(answer)
+
         }
         
       }else if(randomKind == 1){
@@ -97,6 +109,8 @@ class Questions{
           myQuestion.push(another2Option)
           myQuestion.push(anotherOption)
           myQuestion = shuffleArray(myQuestion)
+          myQuestion.push(answer)
+
         }
         
       }else if(randomKind == 2){
@@ -117,6 +131,8 @@ class Questions{
           myQuestion.push(another2Option)
           myQuestion.push(anotherOption)
           myQuestion = shuffleArray(myQuestion)
+          myQuestion.push(answer)
+
         }
         
       }else if(randomKind == 3){
@@ -140,6 +156,7 @@ class Questions{
           myQuestion.push(another2Option)
           myQuestion.push(anotherOption)
           myQuestion = shuffleArray(myQuestion)
+          myQuestion.push(answer)
         }
         
       }
@@ -154,6 +171,7 @@ class MultipleChoice{
     this.y = y
     this.sizeX = sizeX
     this.sizeY = sizeY
+    this.answerIndex = 0
 
   }
   drawMultipleChoice(){
@@ -168,10 +186,23 @@ class MultipleChoice{
     text(this.question[2], this.x - this.sizeX/2, this.y + this.sizeY)
     text(this.question[3], this.x - this.sizeX/2, this.y + this.sizeY*2)
     text(this.question[4], this.x+ this.sizeX/2, this.y + this.sizeY*2)
+    //rect(this.x, this.y, this.sizeX, this.sizeY)
   }
-  checkAnswer(){
 
-  }
+   checkAnswer(){
+    if(mouseIsPressed){
+      if(mouseX >= this.x-this.sizeX && mouseX<=this.x && mouseY >= this.y + this.sizeY/2 && mouseY <= this.y + 3*(this.sizeY/2)){
+        return this.question[2]
+      }else if(mouseX >= this.x-this.sizeX && mouseX<=this.x && mouseY >= this.y + 3*(this.sizeY/2) && mouseY <= this.y + 3*this.sizeY - this.sizeY/2){
+        return this.question[3]
+      }else if(mouseX >= this.x && mouseX<=this.x + this.sizeX&& mouseY >= this.y + this.sizeY/2 && mouseY <= this.y + 3*(this.sizeY/2)){
+        return this.question[1]
+      }else if(mouseX >= this.x && mouseX<=this.x + this.sizeX&& mouseY >= this.y + 3*(this.sizeY/2) && mouseY <= this.y + 3*this.sizeY - this.sizeY/2){
+        return this.question[4]
+      }
+    }
+   }
+  
 }
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 1; i--) {
@@ -187,33 +218,60 @@ function preload(){
 function setup() {
   textAlign(CENTER, CENTER)
   createCanvas(windowWidth, windowHeight)
-  background('blue')
   frameRate(fps)
-  player1 = new Player(0, 100, 5, 5, 0.95);
-  player2 = new Player(100, 100, 5, 5, 0.95);
-  mathQuestion = new Questions(11, 'math').genQuestions()
-  print(mathQuestion)
+  player1 = new Player(0, 100, 5, 5, 0.95, 0);
+  player2 = new Player(100, 100, 5, 5, 0.95, 0);
+  mathQuestion1 = new Questions(11, 'math').genQuestions()
+  mathQuestion2 = new Questions(11, 'math').genQuestions()
+
   
 }
 
 function draw() {
   clear()
+  background('grey')
 	print(velocity)
 	player1.draw();
 	player2.draw();
 	player1.move();
 	player2.move();
+  text(player1.points, 10, 20)
+  text(player2.points, 40, 20)
   if(frameCount%fps == 0){
     questionTime--
   }
   text(questionTime, 100, 100, 100, 100)
   try{
-    multipleChoice = new MultipleChoice(mathQuestion, 200, 300, 100, 60)
-    multipleChoice.drawMultipleChoice()
+    multipleChoice1 = new MultipleChoice(mathQuestion1, 200, 300, 100, 60)
+    multipleChoice1.drawMultipleChoice()
+    multipleChoice2 = new MultipleChoice(mathQuestion2, 500, 300, 100, 60)
+    multipleChoice2.drawMultipleChoice()
   }catch(error){
-    mathQuestion = new Questions(11, 'math').genQuestions()
+    mathQuestion1 = new Questions(11, 'math').genQuestions()
+    mathQuestion2 = new Questions(11, 'math').genQuestions()
   }
 
+  if(mouseIsPressed && !wasMousePressed) {
+    if(multipleChoice1.checkAnswer()){
+      if(multipleChoice1.checkAnswer() == multipleChoice1.question[multipleChoice1.question.length-1]){
+        print('1 won');
+        player1Won = true;
+      }
+    } else if(multipleChoice2.checkAnswer()){
+      if(multipleChoice2.checkAnswer() == multipleChoice2.question[multipleChoice2.question.length-1]){
+        print('2 won');
+        player2Won = true;
+      }
+    }
+  }
+  wasMousePressed = mouseIsPressed;
+  if(player1Won){
+    player1.points++
+    player1Won = false
+  }else if(player2Won){
+    player2.points++
+    player2Won = false
+  }
   if(questionTime <= 0){
     questionTime = 10
   }
