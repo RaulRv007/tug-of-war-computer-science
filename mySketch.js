@@ -37,10 +37,23 @@ let actualState = gameState.IN_GAME
 let questionsGenerated = false
 let transitionExecuted = false
 
-let chordLength = 300
+let chordLength = 200
 
 let widthQuiz = 200
 let heightQuiz = 80
+
+let grade1_questions_math
+let grade2_questions_math
+let grade3_questions_math
+let grade4_questions_math
+let grade5_questions_math
+let grade6_questions_math
+let grade7_questions_math
+let grade8_questions_math
+let grade9_questions_math
+let grade10_questions_math
+let grade11_questions_math
+let grade12_questions_math
 
 
 
@@ -53,16 +66,20 @@ function shuffleArray(array) {
 }
 function preload() {
   question = new Questions(11, 'math')
+  grade1_questions_math = loadJSON('./questions/grade1_math_question.json')
+  grade2_questions_math = loadJSON('./questions/grade2_math_question.json')
+  grade2_questions_math = loadJSON('./questions/grade3_math_question.json')
 
 }
 function setup() {
   textAlign(CENTER, CENTER)
   createCanvas(windowWidth, windowHeight)
   frameRate(fps)
-  player2 = new Player(windowWidth/2 - chordLength/2 - 50, 200, 5, 5, 0.95, 0);
-  player1 = new Player(windowWidth/2 + chordLength/2, 200, 5, 5, 0.95, 0);
-  mathQuestion1 = new Questions(11, 'math').genQuestions()
-  mathQuestion2 = new Questions(11, 'math').genQuestions()
+  player2 = new Player(windowWidth/2 - chordLength/2 - 50, 200, 1, 5, 0.95, 0);
+  player1 = new Player(windowWidth/2 + chordLength/2, 200, 1, 5, 0.95, 0);
+  print(grade1_questions_math[15].question)
+  mathQuestion1 = new Questions(1, 'math').getQuestions()
+  mathQuestion2 = new Questions(1, 'math').getQuestions()
   widthQuiz = (windowWidth/6) + windowWidth/24
   heightQuiz = windowHeight/9
   try {
@@ -71,8 +88,8 @@ function setup() {
     multipleChoice1 = new MultipleChoice(mathQuestion2, windowWidth - widthQuiz, windowHeight - (heightQuiz/2)*5, widthQuiz, heightQuiz)
     multipleChoice1.drawMultipleChoice()
   } catch (error) {
-    mathQuestion1 = new Questions(11, 'math').genQuestions()
-    mathQuestion2 = new Questions(11, 'math').genQuestions()
+    mathQuestion1 = new Questions(1, 'math').getQuestions()
+    mathQuestion2 = new Questions(1, 'math').getQuestions()
   }
 
 
@@ -82,9 +99,10 @@ function draw() {
 
   clear()
   background('grey')
-  text(player1.points, 10, 20)
-  text(player2.points, 40, 20)
-
+  text(player2.points, 40, 40)
+  text(player1.points, windowWidth-40, 40)
+  
+  rect(windowWidth/24, windowHeight/2, windowWidth - 2*(windowWidth/24), 50)
   switch (actualState) {
     case gameState.IN_GAME:
       player1.draw();
@@ -160,8 +178,8 @@ function draw() {
         actualState = gameState.IN_GAME
       } else {
         if (!questionsGenerated) {
-          mathQuestion1 = new Questions(11, 'math').genQuestions();
-          mathQuestion2 = new Questions(11, 'math').genQuestions();
+          mathQuestion1 = new Questions(1, 'math').getQuestions()
+          mathQuestion2 = new Questions(1, 'math').getQuestions()
           questionsGenerated = true;
         }
         try {
@@ -170,8 +188,8 @@ function draw() {
           multipleChoice1 = new MultipleChoice(mathQuestion2, windowWidth - widthQuiz, windowHeight - (heightQuiz/2)*5, widthQuiz, heightQuiz)
           multipleChoice1.drawMultipleChoice()
         } catch (error) {
-          mathQuestion1 = new Questions(11, 'math').genQuestions()
-          mathQuestion2 = new Questions(11, 'math').genQuestions()
+          mathQuestion1 = new Questions(1, 'math').getQuestions()
+          mathQuestion2 = new Questions(1, 'math').getQuestions()
         }
 
       }
