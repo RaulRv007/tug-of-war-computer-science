@@ -55,7 +55,7 @@ let grade10_questions_math
 let grade11_questions_math
 let grade12_questions_math
 
-
+let doneQuestions = []
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 1; i--) {
@@ -75,8 +75,8 @@ function setup() {
   textAlign(CENTER, CENTER)
   createCanvas(windowWidth, windowHeight)
   frameRate(fps)
-  player2 = new Player(windowWidth/2 - chordLength/2 - 50, 200, 1, 5, 0.95, 0);
-  player1 = new Player(windowWidth/2 + chordLength/2, 200, 1, 5, 0.95, 0);
+  player2 = new Player(windowWidth/2 - chordLength/2 - 50, 200, 2, 5, 0.95, 0);
+  player1 = new Player(windowWidth/2 + chordLength/2, 200, 2, 5, 0.95, 0);
   print(grade1_questions_math[15].question)
   mathQuestion1 = new Questions(1, 'math').getQuestions()
   mathQuestion2 = new Questions(1, 'math').getQuestions()

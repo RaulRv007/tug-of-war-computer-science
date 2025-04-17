@@ -7,6 +7,12 @@ class Questions {
   getQuestions() {
     let myQuestion
 
+    do {
+      this.index = floor(random(0, 50))
+    } while (doneQuestions.includes(this.index))
+
+    doneQuestions.push(this.index)
+
     switch (this.grade) {
       case 1:
         myQuestion = [grade1_questions_math[this.index].question,
