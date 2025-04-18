@@ -181,6 +181,11 @@ function draw() {
             actualState = gameState.TRANSITION
             startTransitionTime = millis()
             questionsGenerated = false
+          }else if(multipleChoice1.checkAnswer() != multipleChoice1.question[multipleChoice1.question.length - 1]){
+            player2Won = true
+            actualState = gameState.TRANSITION
+            startTransitionTime = millis()
+            questionsGenerated = false
           }
         } else if (multipleChoice2.checkAnswer()) {
           if (multipleChoice2.checkAnswer() == multipleChoice2.question[multipleChoice2.question.length - 1]) {
@@ -189,8 +194,11 @@ function draw() {
             actualState = gameState.TRANSITION
             startTransitionTime = millis()
             questionsGenerated = false
-
-
+          }else if(multipleChoice2.checkAnswer() != multipleChoice1.question[multipleChoice1.question.length - 1]){
+            player1Won = true
+            actualState = gameState.TRANSITION
+            startTransitionTime = millis()
+            questionsGenerated = false
           }
         }
       }
