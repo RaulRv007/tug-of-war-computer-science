@@ -57,6 +57,24 @@ let grade12_questions_math
 
 let doneQuestions = []
 
+let WIDTH = 0
+let HEIGHT = 0
+
+let characters1SpriteSheet
+let characters1 = []
+let characters2SpriteSheet
+let characters2 = []
+let flagSpriteSheet
+let flagSprites = []
+let flagCounter = 0
+let background
+let platform
+
+let flagX = 0
+let flagY = 0
+
+let myFlag
+
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 1; i--) {
     const j = Math.floor(Math.random() * (i - 1)) + 1; // random index from 1 to i
@@ -64,19 +82,46 @@ function shuffleArray(array) {
   }
   return array;
 }
+
+function sliceSpriteSheet(spriteSheet, rows, columns, spriteArray) {
+	let w = spriteSheet.width / columns
+	let h = spriteSheet.height / rows
+
+	for (let y = 0; y < columns; y++) {
+		// create another emoty array for that row
+		spriteArray[y] = []
+		// there are 12 images in a row, iterate through them
+		for (let x = 0; x < rows; x++) {
+			// get the image subsection there and then stor in the array
+			spriteArray[y][x] = spriteSheet.get(x * w, y * h, w, h)
+		}
+	}
+	return spriteArray
+}
 function preload() {
   question = new Questions(11, 'math')
   grade1_questions_math = loadJSON('./questions/grade1_math_question.json')
   grade2_questions_math = loadJSON('./questions/grade2_math_question.json')
   grade2_questions_math = loadJSON('./questions/grade3_math_question.json')
+  characters1SpriteSheet = loadImage('assets/characters.png')
+  characters2SpriteSheet = loadImage('assets/charactersP2.png')
+  flagSpriteSheet = loadImage('assets/rotating_orbs.png')
+  background = loadImage('assets/background.png')
+  platform = loadImage('assets/platform.png')
 
 }
 function setup() {
+  WIDTH = windowWidth
+  HEIGHT = windowHeight
   textAlign(CENTER, CENTER)
   createCanvas(windowWidth, windowHeight)
   frameRate(fps)
-  player2 = new Player(windowWidth/2 - chordLength/2 - 50, 200, 2, 5, 0.95, 0);
-  player1 = new Player(windowWidth/2 + chordLength/2, 200, 2, 5, 0.95, 0);
+  characters1 = sliceSpriteSheet(characters1SpriteSheet, 3, 4, characters1)
+  characters2 = sliceSpriteSheet(characters2SpriteSheet, 3, 4, characters2)
+  flagSprites = sliceSpriteSheet(flagSpriteSheet, 8,4, flagSprites)
+  player2 = new Player(windowWidth/2 - chordLength/2 - 50, 200, 1.75, 5, 0.95, 0, characters1);
+  player1 = new Player(windowWidth/2 + chordLength/2, 200, 1.5, 5, 0.95, 0, characters2);
+  myFlag = new Flag(flagSprites, player2.x + (player2.x-player2.y)/2, player1.y, 2.5, 0.95)
   print(grade1_questions_math[15].question)
   mathQuestion1 = new Questions(1, 'math').getQuestions()
   mathQuestion2 = new Questions(1, 'math').getQuestions()
@@ -91,6 +136,7 @@ function setup() {
     mathQuestion1 = new Questions(1, 'math').getQuestions()
     mathQuestion2 = new Questions(1, 'math').getQuestions()
   }
+  
 
 
 }
@@ -98,11 +144,13 @@ function setup() {
 function draw() {
 
   clear()
-  background('grey')
+  image(background, 0, 0)
+  image(platform, 125, player1.y + 40)
   text(player2.points, 40, 40)
   text(player1.points, windowWidth-40, 40)
-  
-  rect(windowWidth/24, windowHeight/2, windowWidth - 2*(windowWidth/24), 50)
+  myFlag.draw()
+  myFlag.move()
+  //rect(windowWidth/24, windowHeight/2, windowWidth - 2*(windowWidth/24), 50)
   switch (actualState) {
     case gameState.IN_GAME:
       player1.draw();
@@ -140,7 +188,16 @@ function draw() {
       wasMousePressed = mouseIsPressed;
 
       if (questionTime <= 0) {
+        print(dist(myFlag.x, myFlag.y, player2.x, player2.y))
+        print(dist(myFlag.x, myFlag.y, player1.x, player1.y))
+        if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <= dist(myFlag.x, myFlag.y, player1.x, player1.y)){
+          player2Won = true
+        }else{
+          player1Won = true
+        }
+        startTransitionTime = millis()
         actualState = gameState.TRANSITION
+
       }
       break;
 
@@ -156,22 +213,13 @@ function draw() {
           player1Won = false
           player1.moveRight()
           player2.moveRight()
+          myFlag.moveRight()
         } else if (player2Won) {
           player2.points++
           player2Won = false
           player1.moveLeft()
           player2.moveLeft()
-        }else{
-          if (!transitionExecuted) {
-            if (player1.points > player2.points) {
-              player1.moveRight();
-              player2.moveRight();
-            } else if (player2.points > player1.points) {
-              player1.moveLeft();
-              player2.moveLeft();
-            }
-            transitionExecuted = true;
-          }
+          myFlag.moveLeft()
         }
       } else if (millis() - startTransitionTime >= 5000) {
         questionTime = 10

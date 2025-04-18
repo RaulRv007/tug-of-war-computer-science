@@ -1,23 +1,25 @@
 class Player {
-	constructor(x, y, force, velocity, friction, points) {
+	constructor(x, y, force, velocity, friction, points, sprites) {
 		this.x = x;
 		this.y = y;
-		this.width = 50;
-		this.height = 50;
+		this.width = WIDTH/24;
+		this.height = this.width;
 		this.color = 'red';
 		this.force = force
 		this.velocity = velocity;
 		this.friction = friction;
+		this.sprites = sprites
     this.points = points
 	}
 	draw(){
-		rect(this.x, this.y, this.width, this.height);
+		//rect(this.x, this.y, this.width, this.height);
+		image(this.sprites[0][0], this.x, this.y)
 		
 	}
 	move(){
 		this.x += this.velocity;
 		this.velocity *= this.friction
-		if (this.velocity < 0.1 && this.velocity > -0.9) {
+		if (this.velocity < 0.1 && this.velocity > -0.1) {
 			this.velocity = 0;
 		}
 
