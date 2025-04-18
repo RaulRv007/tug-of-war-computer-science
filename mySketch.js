@@ -77,6 +77,8 @@ let flagY = 0
 let myFlag
 
 let winner = 0
+
+let lostCountdown = false
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 1; i--) {
     const j = Math.floor(Math.random() * (i - 1)) + 1; // random index from 1 to i
@@ -123,7 +125,7 @@ function setup() {
   flagSprites = sliceSpriteSheet(flagSpriteSheet, 8,4, flagSprites)
   player2 = new Player(windowWidth/2 - chordLength/2 - 50, 200, 1.75, 5, 0.95, 0, characters1);
   player1 = new Player(windowWidth/2 + chordLength/2, 200, 1.5, 5, 0.95, 0, characters2);
-  myFlag = new Flag(flagSprites, player2.x + (player2.x-player2.y)/2, player1.y, 2.5, 0.95)
+  myFlag = new Flag(flagSprites, player2.x + (player1.x-player2.x)/2, player1.y, 2.5, 0.95)
   print(grade1_questions_math[15].question)
   mathQuestion1 = new Questions(1, 'math').getQuestions()
   mathQuestion2 = new Questions(1, 'math').getQuestions()
@@ -156,6 +158,9 @@ function draw() {
 
   //rect(windowWidth/24, windowHeight/2, windowWidth - 2*(windowWidth/24), 50)
   switch (actualState) {
+    case gameState.MAIN_SCREEN:
+      
+      break
     case gameState.IN_GAME:
       player1.draw();
       player2.draw();
@@ -192,12 +197,14 @@ function draw() {
       wasMousePressed = mouseIsPressed;
 
       if (questionTime <= 0) {
-        print(dist(myFlag.x, myFlag.y, player2.x, player2.y))
-        print(dist(myFlag.x, myFlag.y, player1.x, player1.y))
-        if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <= dist(myFlag.x, myFlag.y, player1.x, player1.y)){
+        if(player2.points > player1.points){
           player2Won = true
-        }else{
+        }else if(player2.points < player1.points){
           player1Won = true
+        }else{
+          lostCountdown = true
+          player1Won = false
+          player2Won  =false
         }
         startTransitionTime = millis()
         actualState = gameState.TRANSITION
@@ -233,6 +240,10 @@ function draw() {
           player1.moveLeft()
           player2.moveLeft()
           myFlag.moveLeft()
+        }else if(lostCountdown){
+          lostCountdown = false
+          player1.moveRight()
+          player2.moveLeft()
         }
       } else if (millis() - startTransitionTime >= 5000) {
         questionTime = 10
