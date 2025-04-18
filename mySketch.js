@@ -34,7 +34,7 @@ const gameState = {
   WINNING: 'win'
 }
 
-let actualState = gameState.IN_GAME
+let actualState = gameState.MAIN_SCREEN
 let questionsGenerated = false
 let transitionExecuted = false
 
@@ -78,7 +78,13 @@ let myFlag
 
 let winner = 0
 
+let distanceBetweenButtons = 50
+
 let lostCountdown = false
+
+let myButtons = []
+
+let myGrade = 1
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 1; i--) {
     const j = Math.floor(Math.random() * (i - 1)) + 1; // random index from 1 to i
@@ -106,7 +112,7 @@ function preload() {
   question = new Questions(11, 'math')
   grade1_questions_math = loadJSON('./questions/grade1_math_question.json')
   grade2_questions_math = loadJSON('./questions/grade2_math_question.json')
-  grade2_questions_math = loadJSON('./questions/grade3_math_question.json')
+  grade3_questions_math = loadJSON('./questions/grade3_math_question.json')
   characters1SpriteSheet = loadImage('assets/characters.png')
   characters2SpriteSheet = loadImage('assets/charactersP2.png')
   flagSpriteSheet = loadImage('assets/rotating_orbs.png')
@@ -123,24 +129,9 @@ function setup() {
   characters1 = sliceSpriteSheet(characters1SpriteSheet, 3, 4, characters1)
   characters2 = sliceSpriteSheet(characters2SpriteSheet, 3, 4, characters2)
   flagSprites = sliceSpriteSheet(flagSpriteSheet, 8,4, flagSprites)
-  player2 = new Player(windowWidth/2 - chordLength/2 - 50, 200, 1.75, 5, 0.95, 0, characters1);
-  player1 = new Player(windowWidth/2 + chordLength/2, 200, 1.5, 5, 0.95, 0, characters2);
-  myFlag = new Flag(flagSprites, player2.x + (player1.x-player2.x)/2, player1.y, 2.5, 0.95)
-  print(grade1_questions_math[15].question)
-  mathQuestion1 = new Questions(1, 'math').getQuestions()
-  mathQuestion2 = new Questions(1, 'math').getQuestions()
-  widthQuiz = (windowWidth/6) + windowWidth/24
-  heightQuiz = windowHeight/9
-  try {
-    multipleChoice2 = new MultipleChoice(mathQuestion1, 0 + widthQuiz, windowHeight - (heightQuiz/2)*5, widthQuiz, heightQuiz)
-    multipleChoice2.drawMultipleChoice()
-    multipleChoice1 = new MultipleChoice(mathQuestion2, windowWidth - widthQuiz, windowHeight - (heightQuiz/2)*5, widthQuiz, heightQuiz)
-    multipleChoice1.drawMultipleChoice()
-  } catch (error) {
-    mathQuestion1 = new Questions(1, 'math').getQuestions()
-    mathQuestion2 = new Questions(1, 'math').getQuestions()
-  }
-  
+
+  textSize(distanceBetweenButtons/2)
+
 
 
 }
@@ -152,13 +143,51 @@ function draw() {
   image(platform, 125, player1.y + 40)
   text(player2.points, 40, 40)
   text(player1.points, windowWidth-40, 40)
-  myFlag.draw()
-  myFlag.move()
 
 
   //rect(windowWidth/24, windowHeight/2, windowWidth - 2*(windowWidth/24), 50)
   switch (actualState) {
     case gameState.MAIN_SCREEN:
+      if (myButtons.length === 0) {
+        for (let i = 1; i <= 12; i++) {
+          myButtons.push(new Button(`grade ${i}`, 100, distanceBetweenButtons * i, 140, 30));
+        }
+      }
+      for(button of myButtons){
+        button.draw()
+      }
+      if (mouseIsPressed && !wasMousePressed) {
+        if(mouseIsPressed){
+          for(button of myButtons){
+            print(`${myButtons.indexOf(button) + 1}: ${button.isPressed()}`)
+            if(button.isPressed()){
+              myGrade = myButtons.indexOf(button) + 1
+              print(myGrade)
+
+              player2 = new Player(windowWidth/2 - chordLength/2 - 50, 200, 1.75, 5, 0.95, 0, characters1);
+              player1 = new Player(windowWidth/2 + chordLength/2, 200, 1.5, 5, 0.95, 0, characters2);
+              myFlag = new Flag(flagSprites, player2.x + (player1.x-player2.x)/2, player1.y, 2.5, 0.95)
+              print(grade1_questions_math[15].question)
+              mathQuestion1 = new Questions(myGrade, 'math').getQuestions()
+              mathQuestion2 = new Questions(myGrade, 'math').getQuestions()
+              widthQuiz = (windowWidth/6) + windowWidth/24
+              heightQuiz = windowHeight/9
+              try {
+                multipleChoice2 = new MultipleChoice(mathQuestion1, 0 + widthQuiz, windowHeight - (heightQuiz/2)*5, widthQuiz, heightQuiz)
+                multipleChoice2.drawMultipleChoice()
+                multipleChoice1 = new MultipleChoice(mathQuestion2, windowWidth - widthQuiz, windowHeight - (heightQuiz/2)*5, widthQuiz, heightQuiz)
+                multipleChoice1.drawMultipleChoice()
+              } catch (error) {
+                mathQuestion1 = new Questions(myGrade, 'math').getQuestions()
+                mathQuestion2 = new Questions(myGrade, 'math').getQuestions()
+              }
+              actualState = gameState.IN_GAME
+              
+            }
+          }
+        }
+      }
+      wasMousePressed = mouseIsPressed
       
       break
     case gameState.IN_GAME:
@@ -167,6 +196,9 @@ function draw() {
 
       multipleChoice1.drawMultipleChoice()
       multipleChoice2.drawMultipleChoice()
+
+      myFlag.draw()
+      myFlag.move()
 
       if (frameCount % fps == 0) {
         questionTime--
@@ -225,6 +257,9 @@ function draw() {
       player2.draw();
       player1.move();
       player2.move();
+
+      myFlag.draw()
+      myFlag.move()
 
       if (millis() - startTransitionTime <= 3000) {
         if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <= 5){
