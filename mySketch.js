@@ -109,6 +109,8 @@ let animationPlayer
 let loserX
 let loserY
 
+let myFont
+
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 1; i--) {
     const j = Math.floor(Math.random() * (i - 1)) + 1; // random index from 1 to i
@@ -143,6 +145,7 @@ function preload() {
   background = loadImage('assets/background.png')
   platform = loadImage('assets/platform.png')
   fireBallSpriteSheet = loadImage('assets/fireball.png')
+  myFont = loadFont('assets/dogica.ttf')
 
 }
 function setup() {
@@ -151,12 +154,14 @@ function setup() {
   textAlign(CENTER, CENTER)
   createCanvas(windowWidth, windowHeight)
   frameRate(fps)
+  textFont(myFont)
+
   characters1 = sliceSpriteSheet(characters1SpriteSheet, 3, 4, characters1)
   characters2 = sliceSpriteSheet(characters2SpriteSheet, 3, 4, characters2)
   flagSprites = sliceSpriteSheet(flagSpriteSheet, 8,4, flagSprites)
   fireBallSprites = sliceSpriteSheet(fireBallSpriteSheet, 16, 6, fireBallSprites)
 
-  textSize(distanceBetweenButtons/2)
+  textSize(distanceBetweenButtons/3)
   platformHeight = player1.y + 40
 }
 
@@ -174,6 +179,7 @@ function draw() {
       if (myButtons.length === 0) {
         for (let i = 1; i <= 12; i++) {
           myButtons.push(new Button(`grade ${i}`, 100, distanceBetweenButtons * i, 140, 30));
+          loserVel = 5
         }
       }
       for(button of myButtons){
@@ -372,7 +378,10 @@ function draw() {
           player2.y -= loserVel
           loserVel -= gravity
           player2.x -= 7
-
+          
+        }
+        if(player2.y >= windowHeight){
+          actualState = gameState.MAIN_SCREEN
         }
       }else if(winner ==2){
         text('player2 won', 100, 100)
