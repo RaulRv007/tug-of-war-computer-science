@@ -85,6 +85,30 @@ let lostCountdown = false
 let myButtons = []
 
 let myGrade = 1
+
+let fireBallSpriteSheet
+let fireBallSprites = []
+let fireBallX = 0
+let fireBallY = 0
+let fireBallAngle = 0
+let platformHeight = 0
+let gravity = 0.1
+let loserVel = 5
+let loserTouched = false
+
+let animStates = {
+  GOING_UP: 'up',
+  SHOOTING: 'shooting',
+  GOING_OUT: 'out'
+}
+let animationState
+
+let loserAngle = 0
+
+let animationPlayer
+let loserX
+let loserY
+
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 1; i--) {
     const j = Math.floor(Math.random() * (i - 1)) + 1; // random index from 1 to i
@@ -118,6 +142,7 @@ function preload() {
   flagSpriteSheet = loadImage('assets/rotating_orbs.png')
   background = loadImage('assets/background.png')
   platform = loadImage('assets/platform.png')
+  fireBallSpriteSheet = loadImage('assets/fireball.png')
 
 }
 function setup() {
@@ -129,21 +154,19 @@ function setup() {
   characters1 = sliceSpriteSheet(characters1SpriteSheet, 3, 4, characters1)
   characters2 = sliceSpriteSheet(characters2SpriteSheet, 3, 4, characters2)
   flagSprites = sliceSpriteSheet(flagSpriteSheet, 8,4, flagSprites)
+  fireBallSprites = sliceSpriteSheet(fireBallSpriteSheet, 16, 6, fireBallSprites)
 
   textSize(distanceBetweenButtons/2)
-
-
-
+  platformHeight = player1.y + 40
 }
 
 function draw() {
 
   clear()
   image(background, 0, 0)
-  image(platform, 125, player1.y + 40)
+  image(platform, 125, platformHeight)
   text(player2.points, 40, 40)
   text(player1.points, windowWidth-40, 40)
-
 
   //rect(windowWidth/24, windowHeight/2, windowWidth - 2*(windowWidth/24), 50)
   switch (actualState) {
@@ -181,6 +204,7 @@ function draw() {
                 mathQuestion1 = new Questions(myGrade, 'math').getQuestions()
                 mathQuestion2 = new Questions(myGrade, 'math').getQuestions()
               }
+              platformHeight = player1.y + 40
               actualState = gameState.IN_GAME
               
             }
@@ -265,10 +289,15 @@ function draw() {
         if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <= 5){
           winner = 2
           actualState = gameState.WINNING
+          animationState = animStates.GOING_UP
+          startTransitionTime = millis()
           break
         }else if(dist(myFlag.x, myFlag.y, player1.x, player1.y) <= 5){
           winner = 1
           actualState = gameState.WINNING
+          animationState = animStates.GOING_UP
+          startTransitionTime = millis()
+
           break
         }
         if (player1Won) {
@@ -293,8 +322,8 @@ function draw() {
         actualState = gameState.IN_GAME
       } else {
         if (!questionsGenerated) {
-          mathQuestion1 = new Questions(1, 'math').getQuestions()
-          mathQuestion2 = new Questions(1, 'math').getQuestions()
+          mathQuestion1 = new Questions(myGrade, 'math').getQuestions()
+          mathQuestion2 = new Questions(myGrade, 'math').getQuestions()
           questionsGenerated = true;
         }
         try {
@@ -303,8 +332,8 @@ function draw() {
           multipleChoice1 = new MultipleChoice(mathQuestion2, windowWidth - widthQuiz, windowHeight - (heightQuiz/2)*5, widthQuiz, heightQuiz)
           multipleChoice1.drawMultipleChoice()
         } catch (error) {
-          mathQuestion1 = new Questions(1, 'math').getQuestions()
-          mathQuestion2 = new Questions(1, 'math').getQuestions()
+          mathQuestion1 = new Questions(myGrade, 'math').getQuestions()
+          mathQuestion2 = new Questions(myGrade, 'math').getQuestions()
         }
 
       }
@@ -316,8 +345,40 @@ function draw() {
       player2.move();
       if(winner == 1){
         text('player1 won', 100, 100)
+        if(millis()-startTransitionTime <= 1000){
+
+        }
+        if(millis()-startTransitionTime > 1010 && animationState!= animStates.GOING_OUT){
+          if (animationState === animStates.GOING_UP && fireBallX === 0 && fireBallY === 0) {
+            fireBallX = player1.x;
+            fireBallY = player1.y + 10;
+            fireBallAngle = Math.asin((player1.y - player2.y) / -dist(player2.x, player2.y, fireBallX, fireBallY));
+          }
+        
+          animationState = animStates.SHOOTING
+        }
+        if(dist(fireBallX, fireBallY, player2.x, player2.y) <= 30){
+          animationState = animStates.GOING_OUT
+        }
+        if(animationState == animStates.GOING_UP){
+          player1.y--
+        }else if(animationState == animStates.SHOOTING){
+          image(fireBallSprites[1][1], fireBallX, fireBallY)
+          fireBallX -= cos(fireBallAngle)
+          fireBallY += sin(fireBallAngle)
+          print(dist(player2.x, player2.y, fireBallX, fireBallY))
+          print(`x: ${fireBallX}`)
+        }else if(animationState == animStates.GOING_OUT){
+          player2.y -= loserVel
+          loserVel -= gravity
+          player2.x -= 7
+
+        }
       }else if(winner ==2){
         text('player2 won', 100, 100)
+        if(millis()-startTransitionTime <= 1000){
+          player2.y++
+        }
       }
     default:
       break;
