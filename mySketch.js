@@ -30,7 +30,8 @@ const gameState = {
   TRANSITION: 'transition',
   PAUSE_SCREEN: 'pause',
   IN_GAME: 'game',
-  BEGINNING: 'begin'
+  BEGINNING: 'begin',
+  WINNING: 'win'
 }
 
 let actualState = gameState.IN_GAME
@@ -75,6 +76,7 @@ let flagY = 0
 
 let myFlag
 
+let winner = 0
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 1; i--) {
     const j = Math.floor(Math.random() * (i - 1)) + 1; // random index from 1 to i
@@ -150,6 +152,8 @@ function draw() {
   text(player1.points, windowWidth-40, 40)
   myFlag.draw()
   myFlag.move()
+
+
   //rect(windowWidth/24, windowHeight/2, windowWidth - 2*(windowWidth/24), 50)
   switch (actualState) {
     case gameState.IN_GAME:
@@ -208,6 +212,15 @@ function draw() {
       player2.move();
 
       if (millis() - startTransitionTime <= 3000) {
+        if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <= 5){
+          winner = 2
+          actualState = gameState.WINNING
+          break
+        }else if(dist(myFlag.x, myFlag.y, player1.x, player1.y) <= 5){
+          winner = 1
+          actualState = gameState.WINNING
+          break
+        }
         if (player1Won) {
           player1.points++
           player1Won = false
@@ -240,6 +253,17 @@ function draw() {
           mathQuestion2 = new Questions(1, 'math').getQuestions()
         }
 
+      }
+      break
+    case gameState.WINNING:
+      player1.draw();
+      player2.draw();
+      player1.move();
+      player2.move();
+      if(winner == 1){
+        text('player1 won', 100, 100)
+      }else if(winner ==2){
+        text('player2 won', 100, 100)
       }
     default:
       break;
