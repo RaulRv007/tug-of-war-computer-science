@@ -179,9 +179,12 @@ function draw() {
       if (myButtons.length === 0) {
         for (let i = 1; i <= 12; i++) {
           myButtons.push(new Button(`grade ${i}`, 100, distanceBetweenButtons * i, 140, 30));
-          loserVel = 5
         }
       }
+      loserVel = 5
+      fireBallAngle = 0
+      fireBallX = 0
+      fireBallY = 0
       for(button of myButtons){
         button.draw()
       }
@@ -233,7 +236,9 @@ function draw() {
       if (frameCount % fps == 0) {
         questionTime--
       }
-      text(questionTime, 100, 100, 100, 100)
+      text(questionTime, windowWidth/2 - 50, 50, 100, 100)
+      rect(windowWidth/2 -50, 150, questionTime*10, 10)
+
 
       if (mouseIsPressed && !wasMousePressed) {
         if (multipleChoice1.checkAnswer()) {
