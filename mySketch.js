@@ -113,6 +113,8 @@ let myFont
 
 const ratioILike = 1227/650
 
+let separatedForce = 1
+
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 1; i--) {
     const j = Math.floor(Math.random() * (i - 1)) + 1; // random index from 1 to i
@@ -175,14 +177,14 @@ function draw() {
   image(background, windowWidth/2, windowHeight/2)
 
   let platformHeightAdjusted = (windowWidth - windowWidth / 4) * (290 / platform.width);
-  image(platform, windowWidth / 2, player1.y + player1.height/2 + platformHeightAdjusted / 2, windowWidth - windowWidth / 4, platformHeightAdjusted);
+  image(platform, windowWidth / 2, player2.y + player1.height/2 + platformHeightAdjusted / 2, windowWidth - windowWidth / 4, platformHeightAdjusted);
   text(player2.points, 40, 40)
   text(player1.points, windowWidth-40, 40)
 
-  player1.force = 1.5 / windowWidth *1000
-  player2.force = 1.75 / windowWidth *1000
+  player1.force = 1.5 * windowWidth /1000
+  player2.force = 1.75 * windowWidth /1000
   try{
-    myFlag.force = 2.5 / windowWidth*1000
+    myFlag.force = 2.5 *windowWidth/1000 * separatedForce
   }catch(e){
     print('no')
   }
@@ -294,6 +296,7 @@ function draw() {
           lostCountdown = true
           player1Won = false
           player2Won  =false
+          separatedForce+=0.4
         }
         startTransitionTime = millis()
         actualState = gameState.TRANSITION

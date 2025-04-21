@@ -9,7 +9,7 @@ class Player {
 		this.velocity = velocity;
 		this.friction = friction;
 		this.sprites = sprites
-    this.points = points
+    	this.points = points
 	}
 	draw(){
 		//rect(this.x, this.y, this.width, this.height);
