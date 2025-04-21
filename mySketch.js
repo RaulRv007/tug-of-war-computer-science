@@ -115,14 +115,23 @@ const ratioILike = 1227/650
 
 let separatedForce = 1
 
+let difficultyLevel = 1
+
 
 function shuffleArray(array) {
-  for (let i = array.length - 1; i > 1; i--) {
-    const j = Math.floor(Math.random() * (i - 1)) + 1; // random index from 1 to i
-    [array[i], array[j]] = [array[j], array[i]];      // swap
+  const question = array[0];
+  const choices = array.slice(1, 5); // answers
+  const correctAnswer = array[5];   // answer key
+
+  // Fisher-Yates shuffle on the choices only
+  for (let i = choices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [choices[i], choices[j]] = [choices[j], choices[i]];
   }
-  return array;
+
+  return [question, ...choices, correctAnswer];
 }
+
 
 function sliceSpriteSheet(spriteSheet, rows, columns, spriteArray) {
 	let w = spriteSheet.width / columns
@@ -184,10 +193,10 @@ function draw() {
   text(player2.points, 40, 40)
   text(player1.points, windowWidth-40, 40)
 
-  player1.force = 1.5 * windowWidth /1000
-  player2.force = 1.75 * windowWidth /1000
+  player1.force = 0.5 * windowWidth /1000
+  player2.force = 0.6 * windowWidth /1000
   try{
-    myFlag.force = 2.7 *windowWidth/1000 * separatedForce
+    myFlag.force = 1 *windowWidth/1000 * separatedForce
   }catch(e){
     print('no')
   }
@@ -199,6 +208,11 @@ function draw() {
         for (let i = 1; i <= 12; i++) {
           myButtons.push(new Button(`grade ${i}`, 100, distanceBetweenButtons * i, 140, 30));
         }
+        myButtons.push(new Button('general arithmetic', 500, 100, 350, 30))
+        myButtons.push(new Button('addition', 500, 150, 350, 30))
+        myButtons.push(new Button('multiplication', 500, 200, 350, 30))
+        myButtons.push(new Button('subtraction', 500, 250, 350, 30))
+        myButtons.push(new Button('division', 500, 300, 350, 30))
       }
       loserVel = 5
       fireBallAngle = 0
@@ -316,6 +330,10 @@ function draw() {
       myFlag.draw()
       myFlag.move()
 
+      if (!transitionExecuted) {
+        difficultyLevel += 0.5;
+        transitionExecuted = true;
+      }
       if (millis() - startTransitionTime <= 3000) {
         if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <= 5){
           winner = 2
@@ -353,8 +371,8 @@ function draw() {
         actualState = gameState.IN_GAME
       } else {
         if (!questionsGenerated) {
-          mathQuestion1 = new Questions(myGrade, 'math').getQuestions()
-          mathQuestion2 = new Questions(myGrade, 'math').getQuestions()
+          mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+          mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
           questionsGenerated = true;
         }
         try {
@@ -363,8 +381,8 @@ function draw() {
           multipleChoice1 = new MultipleChoice(mathQuestion2, windowWidth - widthQuiz, windowHeight - (heightQuiz/2)*5, widthQuiz, heightQuiz)
           multipleChoice1.drawMultipleChoice()
         } catch (error) {
-          mathQuestion1 = new Questions(myGrade, 'math').getQuestions()
-          mathQuestion2 = new Questions(myGrade, 'math').getQuestions()
+          mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+          mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
         }
 
       }
