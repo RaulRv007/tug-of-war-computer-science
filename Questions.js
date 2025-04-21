@@ -50,6 +50,30 @@ class Questions {
         myQuestion.push(grade3_questions_math[this.index].correct_answer)
         return myQuestion
         break;
+      case 4:
+        myQuestion = [grade4_questions_math[this.index].question,
+        grade4_questions_math[this.index].correct_answer,
+        grade4_questions_math[this.index].incorrect_answer_1,
+        grade4_questions_math[this.index].incorrect_answer_2,
+        grade4_questions_math[this.index].incorrect_answer_3,
+        ]
+
+        myQuestion = shuffleArray(myQuestion)
+        myQuestion.push(grade4_questions_math[this.index].correct_answer)
+        return myQuestion
+        break;
+      case 5:
+        myQuestion = [grade5_questions_math[this.index].question,
+        grade5_questions_math[this.index].correct_answer,
+        grade5_questions_math[this.index].incorrect_answer_1,
+        grade5_questions_math[this.index].incorrect_answer_2,
+        grade5_questions_math[this.index].incorrect_answer_3,
+        ]
+
+        myQuestion = shuffleArray(myQuestion)
+        myQuestion.push(grade5_questions_math[this.index].correct_answer)
+        return myQuestion
+        break;
       default:
         break;
     }

@@ -1,0 +1,352 @@
+[
+  {
+    "question": "What is 7 \u00d7 6?",
+    "correct_answer": "42",
+    "incorrect_answer_1": "36",
+    "incorrect_answer_2": "40",
+    "incorrect_answer_3": "48"
+  },
+  {
+    "question": "What is the value of the digit 8 in 6842?",
+    "correct_answer": "800",
+    "incorrect_answer_1": "80",
+    "incorrect_answer_2": "8",
+    "incorrect_answer_3": "840"
+  },
+  {
+    "question": "Round 483 to the nearest hundred.",
+    "correct_answer": "500",
+    "incorrect_answer_1": "400",
+    "incorrect_answer_2": "480",
+    "incorrect_answer_3": "450"
+  },
+  {
+    "question": "Which number is the smallest?",
+    "correct_answer": "230",
+    "incorrect_answer_1": "320",
+    "incorrect_answer_2": "430",
+    "incorrect_answer_3": "380"
+  },
+  {
+    "question": "What is one half of 12?",
+    "correct_answer": "6",
+    "incorrect_answer_1": "4",
+    "incorrect_answer_2": "8",
+    "incorrect_answer_3": "5"
+  },
+  {
+    "question": "What is 3.6 rounded to the nearest whole number?",
+    "correct_answer": "4",
+    "incorrect_answer_1": "3",
+    "incorrect_answer_2": "5",
+    "incorrect_answer_3": "3.5"
+  },
+  {
+    "question": "Which number is a decimal?",
+    "correct_answer": "7.3",
+    "incorrect_answer_1": "73",
+    "incorrect_answer_2": "730",
+    "incorrect_answer_3": "3"
+  },
+  {
+    "question": "What is 0.7 as a fraction?",
+    "correct_answer": "7/10",
+    "incorrect_answer_1": "1/7",
+    "incorrect_answer_2": "10/7",
+    "incorrect_answer_3": "7/100"
+  },
+  {
+    "question": "What shape has 4 equal sides and 4 right angles?",
+    "correct_answer": "Square",
+    "incorrect_answer_1": "Rectangle",
+    "incorrect_answer_2": "Rhombus",
+    "incorrect_answer_3": "Trapezoid"
+  },
+  {
+    "question": "What is 42 \u00f7 6?",
+    "correct_answer": "7",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "8",
+    "incorrect_answer_3": "9"
+  },
+  {
+    "question": "Which number is a decimal?",
+    "correct_answer": "7.3",
+    "incorrect_answer_1": "73",
+    "incorrect_answer_2": "730",
+    "incorrect_answer_3": "3"
+  },
+  {
+    "question": "What is 3 + 0.6?",
+    "correct_answer": "3.6",
+    "incorrect_answer_1": "3.4",
+    "incorrect_answer_2": "4.0",
+    "incorrect_answer_3": "3.1"
+  },
+  {
+    "question": "What is 600 \u00f7 10?",
+    "correct_answer": "60",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "6000",
+    "incorrect_answer_3": "100"
+  },
+  {
+    "question": "What is 3 more than 997?",
+    "correct_answer": "1000",
+    "incorrect_answer_1": "999",
+    "incorrect_answer_2": "998",
+    "incorrect_answer_3": "1003"
+  },
+  {
+    "question": "Which number is a multiple of 9?",
+    "correct_answer": "27",
+    "incorrect_answer_1": "18",
+    "incorrect_answer_2": "20",
+    "incorrect_answer_3": "25"
+  },
+  {
+    "question": "What shape has 4 equal sides and 4 right angles?",
+    "correct_answer": "Square",
+    "incorrect_answer_1": "Rectangle",
+    "incorrect_answer_2": "Rhombus",
+    "incorrect_answer_3": "Trapezoid"
+  },
+  {
+    "question": "How many hundreds in 4200?",
+    "correct_answer": "42",
+    "incorrect_answer_1": "4",
+    "incorrect_answer_2": "420",
+    "incorrect_answer_3": "24"
+  },
+  {
+    "question": "Which number is a decimal?",
+    "correct_answer": "7.3",
+    "incorrect_answer_1": "73",
+    "incorrect_answer_2": "730",
+    "incorrect_answer_3": "3"
+  },
+  {
+    "question": "What is 42 \u00f7 6?",
+    "correct_answer": "7",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "8",
+    "incorrect_answer_3": "9"
+  },
+  {
+    "question": "What is the mode of 5, 6, 5, 8, 5?",
+    "correct_answer": "5",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "8",
+    "incorrect_answer_3": "None"
+  },
+  {
+    "question": "What is 9 \u00d7 5?",
+    "correct_answer": "45",
+    "incorrect_answer_1": "35",
+    "incorrect_answer_2": "40",
+    "incorrect_answer_3": "50"
+  },
+  {
+    "question": "What is 600 \u00f7 10?",
+    "correct_answer": "60",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "6000",
+    "incorrect_answer_3": "100"
+  },
+  {
+    "question": "What is 3 more than 997?",
+    "correct_answer": "1000",
+    "incorrect_answer_1": "999",
+    "incorrect_answer_2": "998",
+    "incorrect_answer_3": "1003"
+  },
+  {
+    "question": "What is the mode of 5, 6, 5, 8, 5?",
+    "correct_answer": "5",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "8",
+    "incorrect_answer_3": "None"
+  },
+  {
+    "question": "What is 0.7 as a fraction?",
+    "correct_answer": "7/10",
+    "incorrect_answer_1": "1/7",
+    "incorrect_answer_2": "10/7",
+    "incorrect_answer_3": "7/100"
+  },
+  {
+    "question": "What shape has 4 equal sides and 4 right angles?",
+    "correct_answer": "Square",
+    "incorrect_answer_1": "Rectangle",
+    "incorrect_answer_2": "Rhombus",
+    "incorrect_answer_3": "Trapezoid"
+  },
+  {
+    "question": "What is 600 \u00f7 10?",
+    "correct_answer": "60",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "6000",
+    "incorrect_answer_3": "100"
+  },
+  {
+    "question": "What is 3 + 0.6?",
+    "correct_answer": "3.6",
+    "incorrect_answer_1": "3.4",
+    "incorrect_answer_2": "4.0",
+    "incorrect_answer_3": "3.1"
+  },
+  {
+    "question": "What is 0.7 as a fraction?",
+    "correct_answer": "7/10",
+    "incorrect_answer_1": "1/7",
+    "incorrect_answer_2": "10/7",
+    "incorrect_answer_3": "7/100"
+  },
+  {
+    "question": "What comes next in the pattern: 100, 200, 300, ...?",
+    "correct_answer": "400",
+    "incorrect_answer_1": "350",
+    "incorrect_answer_2": "250",
+    "incorrect_answer_3": "450"
+  },
+  {
+    "question": "What is the mode of 5, 6, 5, 8, 5?",
+    "correct_answer": "5",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "8",
+    "incorrect_answer_3": "None"
+  },
+  {
+    "question": "What is 3.6 rounded to the nearest whole number?",
+    "correct_answer": "4",
+    "incorrect_answer_1": "3",
+    "incorrect_answer_2": "5",
+    "incorrect_answer_3": "3.5"
+  },
+  {
+    "question": "What is 3 more than 997?",
+    "correct_answer": "1000",
+    "incorrect_answer_1": "999",
+    "incorrect_answer_2": "998",
+    "incorrect_answer_3": "1003"
+  },
+  {
+    "question": "What is 3 + 0.6?",
+    "correct_answer": "3.6",
+    "incorrect_answer_1": "3.4",
+    "incorrect_answer_2": "4.0",
+    "incorrect_answer_3": "3.1"
+  },
+  {
+    "question": "Which number is a decimal?",
+    "correct_answer": "7.3",
+    "incorrect_answer_1": "73",
+    "incorrect_answer_2": "730",
+    "incorrect_answer_3": "3"
+  },
+  {
+    "question": "What is 600 \u00f7 10?",
+    "correct_answer": "60",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "6000",
+    "incorrect_answer_3": "100"
+  },
+  {
+    "question": "How many tenths are in 1.0?",
+    "correct_answer": "10",
+    "incorrect_answer_1": "1",
+    "incorrect_answer_2": "100",
+    "incorrect_answer_3": "0.1"
+  },
+  {
+    "question": "How many hundreds in 4200?",
+    "correct_answer": "42",
+    "incorrect_answer_1": "4",
+    "incorrect_answer_2": "420",
+    "incorrect_answer_3": "24"
+  },
+  {
+    "question": "What is the mode of 5, 6, 5, 8, 5?",
+    "correct_answer": "5",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "8",
+    "incorrect_answer_3": "None"
+  },
+  {
+    "question": "What is 3 more than 997?",
+    "correct_answer": "1000",
+    "incorrect_answer_1": "999",
+    "incorrect_answer_2": "998",
+    "incorrect_answer_3": "1003"
+  },
+  {
+    "question": "What is 0.7 as a fraction?",
+    "correct_answer": "7/10",
+    "incorrect_answer_1": "1/7",
+    "incorrect_answer_2": "10/7",
+    "incorrect_answer_3": "7/100"
+  },
+  {
+    "question": "How many tenths are in 1.0?",
+    "correct_answer": "10",
+    "incorrect_answer_1": "1",
+    "incorrect_answer_2": "100",
+    "incorrect_answer_3": "0.1"
+  },
+  {
+    "question": "What is 0.7 as a fraction?",
+    "correct_answer": "7/10",
+    "incorrect_answer_1": "1/7",
+    "incorrect_answer_2": "10/7",
+    "incorrect_answer_3": "7/100"
+  },
+  {
+    "question": "What is 3 more than 997?",
+    "correct_answer": "1000",
+    "incorrect_answer_1": "999",
+    "incorrect_answer_2": "998",
+    "incorrect_answer_3": "1003"
+  },
+  {
+    "question": "How many hundreds in 4200?",
+    "correct_answer": "42",
+    "incorrect_answer_1": "4",
+    "incorrect_answer_2": "420",
+    "incorrect_answer_3": "24"
+  },
+  {
+    "question": "What is 3 + 0.6?",
+    "correct_answer": "3.6",
+    "incorrect_answer_1": "3.4",
+    "incorrect_answer_2": "4.0",
+    "incorrect_answer_3": "3.1"
+  },
+  {
+    "question": "How many tenths are in 1.0?",
+    "correct_answer": "10",
+    "incorrect_answer_1": "1",
+    "incorrect_answer_2": "100",
+    "incorrect_answer_3": "0.1"
+  },
+  {
+    "question": "What is 3 more than 997?",
+    "correct_answer": "1000",
+    "incorrect_answer_1": "999",
+    "incorrect_answer_2": "998",
+    "incorrect_answer_3": "1003"
+  },
+  {
+    "question": "What number is 100 more than 820?",
+    "correct_answer": "920",
+    "incorrect_answer_1": "1020",
+    "incorrect_answer_2": "8200",
+    "incorrect_answer_3": "900"
+  },
+  {
+    "question": "What is 0.7 as a fraction?",
+    "correct_answer": "7/10",
+    "incorrect_answer_1": "1/7",
+    "incorrect_answer_2": "10/7",
+    "incorrect_answer_3": "7/100"
+  }
+]

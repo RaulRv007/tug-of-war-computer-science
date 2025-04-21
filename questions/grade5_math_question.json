@@ -1,0 +1,352 @@
+[
+  {
+    "question": "What is 9 \u00d7 8?",
+    "correct_answer": "72",
+    "incorrect_answer_1": "81",
+    "incorrect_answer_2": "64",
+    "incorrect_answer_3": "69"
+  },
+  {
+    "question": "Round 42 789 to the nearest thousand.",
+    "correct_answer": "43 000",
+    "incorrect_answer_1": "42 000",
+    "incorrect_answer_2": "40 000",
+    "incorrect_answer_3": "44 000"
+  },
+  {
+    "question": "What is the value of the digit 6 in 16 483?",
+    "correct_answer": "6000",
+    "incorrect_answer_1": "60",
+    "incorrect_answer_2": "600",
+    "incorrect_answer_3": "16"
+  },
+  {
+    "question": "Which number is a multiple of 7?",
+    "correct_answer": "35",
+    "incorrect_answer_1": "32",
+    "incorrect_answer_2": "42",
+    "incorrect_answer_3": "34"
+  },
+  {
+    "question": "Which decimal is the greatest?",
+    "correct_answer": "0.89",
+    "incorrect_answer_1": "0.45",
+    "incorrect_answer_2": "0.56",
+    "incorrect_answer_3": "0.78"
+  },
+  {
+    "question": "Which number is divisible by 4?",
+    "correct_answer": "24",
+    "incorrect_answer_1": "22",
+    "incorrect_answer_2": "25",
+    "incorrect_answer_3": "23"
+  },
+  {
+    "question": "How many hundredths are in 1.0?",
+    "correct_answer": "100",
+    "incorrect_answer_1": "10",
+    "incorrect_answer_2": "1",
+    "incorrect_answer_3": "1000"
+  },
+  {
+    "question": "Which fraction is equivalent to 3/6?",
+    "correct_answer": "1/2",
+    "incorrect_answer_1": "2/3",
+    "incorrect_answer_2": "3/4",
+    "incorrect_answer_3": "1/3"
+  },
+  {
+    "question": "Which number is divisible by 4?",
+    "correct_answer": "24",
+    "incorrect_answer_1": "22",
+    "incorrect_answer_2": "25",
+    "incorrect_answer_3": "23"
+  },
+  {
+    "question": "What is 0.7 rounded to the nearest tenth?",
+    "correct_answer": "0.7",
+    "incorrect_answer_1": "0.6",
+    "incorrect_answer_2": "0.8",
+    "incorrect_answer_3": "1.0"
+  },
+  {
+    "question": "Which fraction is equivalent to 3/6?",
+    "correct_answer": "1/2",
+    "incorrect_answer_1": "2/3",
+    "incorrect_answer_2": "3/4",
+    "incorrect_answer_3": "1/3"
+  },
+  {
+    "question": "Which is the correct inequality? (use '<' or '>')",
+    "correct_answer": "8 < 12",
+    "incorrect_answer_1": "12 < 8",
+    "incorrect_answer_2": "8 = 12",
+    "incorrect_answer_3": "12 > 20"
+  },
+  {
+    "question": "Which number is divisible by 4?",
+    "correct_answer": "24",
+    "incorrect_answer_1": "22",
+    "incorrect_answer_2": "25",
+    "incorrect_answer_3": "23"
+  },
+  {
+    "question": "What is the sum of 7.5 and 2.5?",
+    "correct_answer": "10.0",
+    "incorrect_answer_1": "9.5",
+    "incorrect_answer_2": "10.5",
+    "incorrect_answer_3": "11.0"
+  },
+  {
+    "question": "Which is a factor of 36?",
+    "correct_answer": "6",
+    "incorrect_answer_1": "5",
+    "incorrect_answer_2": "7",
+    "incorrect_answer_3": "8"
+  },
+  {
+    "question": "Which number is written in expanded form as 20 000 + 3000 + 500?",
+    "correct_answer": "23 500",
+    "incorrect_answer_1": "25 300",
+    "incorrect_answer_2": "20 350",
+    "incorrect_answer_3": "23 050"
+  },
+  {
+    "question": "What is 12 \u00d7 5?",
+    "correct_answer": "60",
+    "incorrect_answer_1": "50",
+    "incorrect_answer_2": "65",
+    "incorrect_answer_3": "55"
+  },
+  {
+    "question": "What is 0.25 as a fraction?",
+    "correct_answer": "1/4",
+    "incorrect_answer_1": "1/2",
+    "incorrect_answer_2": "2/5",
+    "incorrect_answer_3": "3/4"
+  },
+  {
+    "question": "What is the product of 11 and 11?",
+    "correct_answer": "121",
+    "incorrect_answer_1": "111",
+    "incorrect_answer_2": "132",
+    "incorrect_answer_3": "101"
+  },
+  {
+    "question": "Which is the correct inequality? (use '<' or '>')",
+    "correct_answer": "8 < 12",
+    "incorrect_answer_1": "12 < 8",
+    "incorrect_answer_2": "8 = 12",
+    "incorrect_answer_3": "12 > 20"
+  },
+  {
+    "question": "What is 0.25 as a fraction?",
+    "correct_answer": "1/4",
+    "incorrect_answer_1": "1/2",
+    "incorrect_answer_2": "2/5",
+    "incorrect_answer_3": "3/4"
+  },
+  {
+    "question": "What is the product of 11 and 11?",
+    "correct_answer": "121",
+    "incorrect_answer_1": "111",
+    "incorrect_answer_2": "132",
+    "incorrect_answer_3": "101"
+  },
+  {
+    "question": "Which is the correct inequality? (use '<' or '>')",
+    "correct_answer": "8 < 12",
+    "incorrect_answer_1": "12 < 8",
+    "incorrect_answer_2": "8 = 12",
+    "incorrect_answer_3": "12 > 20"
+  },
+  {
+    "question": "What is the sum of 7.5 and 2.5?",
+    "correct_answer": "10.0",
+    "incorrect_answer_1": "9.5",
+    "incorrect_answer_2": "10.5",
+    "incorrect_answer_3": "11.0"
+  },
+  {
+    "question": "What is 300 \u00f7 10?",
+    "correct_answer": "30",
+    "incorrect_answer_1": "3",
+    "incorrect_answer_2": "3000",
+    "incorrect_answer_3": "10"
+  },
+  {
+    "question": "What is the sum of 7.5 and 2.5?",
+    "correct_answer": "10.0",
+    "incorrect_answer_1": "9.5",
+    "incorrect_answer_2": "10.5",
+    "incorrect_answer_3": "11.0"
+  },
+  {
+    "question": "What is 12 \u00d7 5?",
+    "correct_answer": "60",
+    "incorrect_answer_1": "50",
+    "incorrect_answer_2": "65",
+    "incorrect_answer_3": "55"
+  },
+  {
+    "question": "Which number is divisible by 4?",
+    "correct_answer": "24",
+    "incorrect_answer_1": "22",
+    "incorrect_answer_2": "25",
+    "incorrect_answer_3": "23"
+  },
+  {
+    "question": "What is 10% of 100?",
+    "correct_answer": "10",
+    "incorrect_answer_1": "5",
+    "incorrect_answer_2": "20",
+    "incorrect_answer_3": "1"
+  },
+  {
+    "question": "What is the sum of 7.5 and 2.5?",
+    "correct_answer": "10.0",
+    "incorrect_answer_1": "9.5",
+    "incorrect_answer_2": "10.5",
+    "incorrect_answer_3": "11.0"
+  },
+  {
+    "question": "What is 0.25 as a fraction?",
+    "correct_answer": "1/4",
+    "incorrect_answer_1": "1/2",
+    "incorrect_answer_2": "2/5",
+    "incorrect_answer_3": "3/4"
+  },
+  {
+    "question": "Which is the correct inequality? (use '<' or '>')",
+    "correct_answer": "8 < 12",
+    "incorrect_answer_1": "12 < 8",
+    "incorrect_answer_2": "8 = 12",
+    "incorrect_answer_3": "12 > 20"
+  },
+  {
+    "question": "What is the product of 11 and 11?",
+    "correct_answer": "121",
+    "incorrect_answer_1": "111",
+    "incorrect_answer_2": "132",
+    "incorrect_answer_3": "101"
+  },
+  {
+    "question": "What is 10% of 100?",
+    "correct_answer": "10",
+    "incorrect_answer_1": "5",
+    "incorrect_answer_2": "20",
+    "incorrect_answer_3": "1"
+  },
+  {
+    "question": "What is 12 \u00d7 5?",
+    "correct_answer": "60",
+    "incorrect_answer_1": "50",
+    "incorrect_answer_2": "65",
+    "incorrect_answer_3": "55"
+  },
+  {
+    "question": "Which is the correct inequality? (use '<' or '>')",
+    "correct_answer": "8 < 12",
+    "incorrect_answer_1": "12 < 8",
+    "incorrect_answer_2": "8 = 12",
+    "incorrect_answer_3": "12 > 20"
+  },
+  {
+    "question": "Which number is a prime number?",
+    "correct_answer": "13",
+    "incorrect_answer_1": "12",
+    "incorrect_answer_2": "14",
+    "incorrect_answer_3": "15"
+  },
+  {
+    "question": "What is 300 \u00f7 10?",
+    "correct_answer": "30",
+    "incorrect_answer_1": "3",
+    "incorrect_answer_2": "3000",
+    "incorrect_answer_3": "10"
+  },
+  {
+    "question": "Which is the correct inequality? (use '<' or '>')",
+    "correct_answer": "8 < 12",
+    "incorrect_answer_1": "12 < 8",
+    "incorrect_answer_2": "8 = 12",
+    "incorrect_answer_3": "12 > 20"
+  },
+  {
+    "question": "Which number is divisible by 4?",
+    "correct_answer": "24",
+    "incorrect_answer_1": "22",
+    "incorrect_answer_2": "25",
+    "incorrect_answer_3": "23"
+  },
+  {
+    "question": "What is 300 \u00f7 10?",
+    "correct_answer": "30",
+    "incorrect_answer_1": "3",
+    "incorrect_answer_2": "3000",
+    "incorrect_answer_3": "10"
+  },
+  {
+    "question": "Which number is written in expanded form as 20 000 + 3000 + 500?",
+    "correct_answer": "23 500",
+    "incorrect_answer_1": "25 300",
+    "incorrect_answer_2": "20 350",
+    "incorrect_answer_3": "23 050"
+  },
+  {
+    "question": "What is the sum of 7.5 and 2.5?",
+    "correct_answer": "10.0",
+    "incorrect_answer_1": "9.5",
+    "incorrect_answer_2": "10.5",
+    "incorrect_answer_3": "11.0"
+  },
+  {
+    "question": "What is 4/8 as a simplified fraction?",
+    "correct_answer": "1/2",
+    "incorrect_answer_1": "2/4",
+    "incorrect_answer_2": "4/4",
+    "incorrect_answer_3": "3/4"
+  },
+  {
+    "question": "What is 0.7 rounded to the nearest tenth?",
+    "correct_answer": "0.7",
+    "incorrect_answer_1": "0.6",
+    "incorrect_answer_2": "0.8",
+    "incorrect_answer_3": "1.0"
+  },
+  {
+    "question": "What is 300 \u00f7 10?",
+    "correct_answer": "30",
+    "incorrect_answer_1": "3",
+    "incorrect_answer_2": "3000",
+    "incorrect_answer_3": "10"
+  },
+  {
+    "question": "What is 4/8 as a simplified fraction?",
+    "correct_answer": "1/2",
+    "incorrect_answer_1": "2/4",
+    "incorrect_answer_2": "4/4",
+    "incorrect_answer_3": "3/4"
+  },
+  {
+    "question": "What is 0.25 as a fraction?",
+    "correct_answer": "1/4",
+    "incorrect_answer_1": "1/2",
+    "incorrect_answer_2": "2/5",
+    "incorrect_answer_3": "3/4"
+  },
+  {
+    "question": "What is 0.7 rounded to the nearest tenth?",
+    "correct_answer": "0.7",
+    "incorrect_answer_1": "0.6",
+    "incorrect_answer_2": "0.8",
+    "incorrect_answer_3": "1.0"
+  },
+  {
+    "question": "What is the sum of 7.5 and 2.5?",
+    "correct_answer": "10.0",
+    "incorrect_answer_1": "9.5",
+    "incorrect_answer_2": "10.5",
+    "incorrect_answer_3": "11.0"
+  }
+]

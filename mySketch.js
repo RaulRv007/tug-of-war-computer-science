@@ -96,7 +96,7 @@ let gravity = 0.1
 let loserVel = 5
 let loserTouched = false
 
-let animStates = {
+const animStates = {
   GOING_UP: 'up',
   SHOOTING: 'shooting',
   GOING_OUT: 'out'
@@ -114,6 +114,7 @@ let myFont
 const ratioILike = 1227/650
 
 let separatedForce = 1
+
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 1; i--) {
@@ -143,6 +144,8 @@ function preload() {
   grade1_questions_math = loadJSON('./questions/grade1_math_question.json')
   grade2_questions_math = loadJSON('./questions/grade2_math_question.json')
   grade3_questions_math = loadJSON('./questions/grade3_math_question.json')
+  grade4_questions_math = loadJSON('./questions/grade4_math_question.json')
+  grade5_questions_math = loadJSON('./questions/grade5_math_question.json')
   characters1SpriteSheet = loadImage('assets/characters.png')
   characters2SpriteSheet = loadImage('assets/charactersP2.png')
   flagSpriteSheet = loadImage('assets/rotating_orbs.png')
@@ -184,7 +187,7 @@ function draw() {
   player1.force = 1.5 * windowWidth /1000
   player2.force = 1.75 * windowWidth /1000
   try{
-    myFlag.force = 2.5 *windowWidth/1000 * separatedForce
+    myFlag.force = 2.7 *windowWidth/1000 * separatedForce
   }catch(e){
     print('no')
   }
@@ -407,8 +410,34 @@ function draw() {
         }
       }else if(winner ==2){
         text('player2 won', 100, 100)
-        if(millis()-startTransitionTime <= 1000){
-          player2.y++
+        if(millis()-startTransitionTime > 1010 && animationState!= animStates.GOING_OUT){
+          if (animationState === animStates.GOING_UP && fireBallX === 0 && fireBallY === 0) {
+            fireBallX = player2.x;
+            fireBallY = player2.y + 10;
+            fireBallAngle = Math.asin((player1.y - player2.y) / -dist(player1.x, player1.y, fireBallX, fireBallY));
+          }
+        
+          animationState = animStates.SHOOTING
+        }
+        if(dist(fireBallX, fireBallY, player1.x, player1.y) <= 30){
+          animationState = animStates.GOING_OUT
+        }
+        if(animationState == animStates.GOING_UP){
+          player2.y--
+        }else if(animationState == animStates.SHOOTING){
+          image(fireBallSprites[1][1], fireBallX, fireBallY)
+          fireBallX += cos(fireBallAngle)
+          fireBallY -= sin(fireBallAngle)
+          print(dist(player1.x, player1.y, fireBallX, fireBallY))
+          print(`x: ${fireBallX}`)
+        }else if(animationState == animStates.GOING_OUT){
+          player1.y -= loserVel
+          loserVel -= gravity
+          player1.x += 7
+          
+        }
+        if(player1.y >= windowHeight){
+          actualState = gameState.MAIN_SCREEN
         }
       }
     default:
