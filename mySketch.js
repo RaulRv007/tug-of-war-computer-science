@@ -111,6 +111,8 @@ let loserY
 
 let myFont
 
+const ratioILike = 1227/650
+
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 1; i--) {
     const j = Math.floor(Math.random() * (i - 1)) + 1; // random index from 1 to i
@@ -152,9 +154,11 @@ function setup() {
   WIDTH = windowWidth
   HEIGHT = windowHeight
   textAlign(CENTER, CENTER)
+  imageMode(CENTER)
   createCanvas(windowWidth, windowHeight)
   frameRate(fps)
   textFont(myFont)
+  chordLength = windowWidth/4
 
   characters1 = sliceSpriteSheet(characters1SpriteSheet, 3, 4, characters1)
   characters2 = sliceSpriteSheet(characters2SpriteSheet, 3, 4, characters2)
@@ -168,10 +172,20 @@ function setup() {
 function draw() {
 
   clear()
-  image(background, 0, 0)
-  image(platform, 125, platformHeight)
+  image(background, windowWidth/2, windowHeight/2)
+
+  let platformHeightAdjusted = (windowWidth - windowWidth / 4) * (290 / platform.width);
+  image(platform, windowWidth / 2, player1.y + player1.height/2 + platformHeightAdjusted / 2, windowWidth - windowWidth / 4, platformHeightAdjusted);
   text(player2.points, 40, 40)
   text(player1.points, windowWidth-40, 40)
+
+  player1.force = 1.5 / windowWidth *1000
+  player2.force = 1.75 / windowWidth *1000
+  try{
+    myFlag.force = 2.5 / windowWidth*1000
+  }catch(e){
+    print('no')
+  }
 
   //rect(windowWidth/24, windowHeight/2, windowWidth - 2*(windowWidth/24), 50)
   switch (actualState) {
@@ -196,9 +210,9 @@ function draw() {
               myGrade = myButtons.indexOf(button) + 1
               print(myGrade)
 
-              player2 = new Player(windowWidth/2 - chordLength/2 - 50, 200, 1.75, 5, 0.95, 0, characters1);
+              player2 = new Player(windowWidth/2 - chordLength/2, 200, 1.75, 5, 0.95, 0, characters1);
               player1 = new Player(windowWidth/2 + chordLength/2, 200, 1.5, 5, 0.95, 0, characters2);
-              myFlag = new Flag(flagSprites, player2.x + (player1.x-player2.x)/2, player1.y, 2.5, 0.95)
+              myFlag = new Flag(flagSprites, windowWidth/2, player1.y, 2.5, 0.95)
               print(grade1_questions_math[15].question)
               mathQuestion1 = new Questions(myGrade, 'math').getQuestions()
               mathQuestion2 = new Questions(myGrade, 'math').getQuestions()

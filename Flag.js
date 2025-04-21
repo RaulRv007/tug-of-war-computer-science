@@ -7,9 +7,11 @@ class Flag{
         this.force = force
         this.flagCounter = 0
         this.friction = friction
+        this.width = WIDTH/24
+        this.height = this.width
     }
     draw(){
-        image(this.sprites[0][this.flagCounter], this.x, this.y)
+        image(this.sprites[0][this.flagCounter], this.x, this.y, this.width, this.height)
         if (frameCount % 3 === 0) {
           this.flagCounter++;
           if (this.flagCounter == 3) {

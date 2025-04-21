@@ -13,7 +13,7 @@ class Player {
 	}
 	draw(){
 		//rect(this.x, this.y, this.width, this.height);
-		image(this.sprites[0][0], this.x, this.y)
+		image(this.sprites[0][0], this.x, this.y, this.width, this.height)
 		
 	}
 	move(){
