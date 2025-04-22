@@ -31,7 +31,9 @@ const gameState = {
   PAUSE_SCREEN: 'pause',
   IN_GAME: 'game',
   BEGINNING: 'begin',
-  WINNING: 'win'
+  WINNING: 'win',
+  CUSTOM: 'custom',
+  SPINNING: 'spinning'
 }
 
 let actualState = gameState.MAIN_SCREEN
@@ -117,6 +119,11 @@ let separatedForce = 1
 
 let difficultyLevel = 1
 
+let inputField
+let inputText
+let numberOfQuestions = 0
+
+let spinner
 
 function shuffleArray(array) {
   const question = array[0];
@@ -183,6 +190,12 @@ function setup() {
   platformHeight = player1.y + 40
 }
 
+function mousePressed() {
+  if(actualState  == gameState.SPINNING){
+    spinner.startSpin(0.25, 0.35);
+  }
+}
+
 function draw() {
 
   clear()
@@ -213,6 +226,7 @@ function draw() {
         myButtons.push(new Button('multiplication', 500, 200, 350, 30))
         myButtons.push(new Button('subtraction', 500, 250, 350, 30))
         myButtons.push(new Button('division', 500, 300, 350, 30))
+        myButtons.push(new Button('personalised', 500, 600, 350, 30))
       }
       loserVel = 5
       fireBallAngle = 0
@@ -228,6 +242,10 @@ function draw() {
             if(button.isPressed()){
               myGrade = myButtons.indexOf(button) + 1
               print(myGrade)
+              if(myGrade == 18){
+                actualState = gameState.SPINNING
+                break
+              }
 
               player2 = new Player(windowWidth/2 - chordLength/2, 200, 1.75, 5, 0.95, 0, characters1);
               player1 = new Player(windowWidth/2 + chordLength/2, 200, 1.5, 5, 0.95, 0, characters2);
@@ -256,6 +274,51 @@ function draw() {
       wasMousePressed = mouseIsPressed
       
       break
+
+    case gameState.CUSTOM:
+      
+      if (!inputField) {
+        // Create a button to submit the input
+        inputField = createInput();
+        inputField.position(20, 60);
+      }
+      let submitButton = new Button('submit', windowWidth/2, windowHeight/2, 100, 30)
+      submitButton.draw()
+      if(submitButton.isPressed()){
+        numberOfQuestions = parseInt(inputField.value())
+        print(numberOfQuestions)
+
+      }
+      if(numberOfQuestions !=0){
+        for(let i = 0; i<= numberOfQuestions; i++){
+
+        }
+      }
+
+
+      break
+    case gameState.SPINNING:
+    
+    if (!spinner) {
+      let prizes = [
+        new Prize("Class", "#FF5733", 10),
+        new Prize("Game", "#33FF57", 20),
+        new Prize("Party", "#3357FF", 30),
+        new Prize("Movie", "#FF33A1", 40),
+        new Prize("Study", "#A133FF", 50),
+        new Prize("Music", "#FF8C33", 60),
+      ];
+
+      spinner = new SpinnerWheel(width / 2, height / 2, 200, prizes);
+    }
+    spinner.draw()
+    spinner.spin()
+    if(spinner.selectedPrize){
+      text(spinner.selectedPrize.name, 200, 200)
+    }
+
+
+    break
     case gameState.IN_GAME:
       player1.draw();
       player2.draw();
