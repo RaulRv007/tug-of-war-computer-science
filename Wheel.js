@@ -1,5 +1,5 @@
 class SpinnerWheel {
-  constructor(x, y, radius, prizes, friction = 0.95, pointerK = 0.8) {
+  constructor(x, y, radius, prizes, friction = 0.98, pointerK = 0.8) {
     this.x = x;
     this.y = y;
     this.radius = radius;

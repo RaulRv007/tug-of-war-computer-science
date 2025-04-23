@@ -73,6 +73,11 @@ let flagCounter = 0
 let background
 let platform
 
+let P1Idle
+let P1Pulling
+let P2Idle
+let P2Pulling
+
 let flagX = 0
 let flagY = 0
 
@@ -124,6 +129,9 @@ let inputText
 let numberOfQuestions = 0
 
 let spinner
+let loopCounter = 0
+
+let roundWinner = 0
 
 function shuffleArray(array) {
   const question = array[0];
@@ -148,10 +156,17 @@ function sliceSpriteSheet(spriteSheet, rows, columns, spriteArray) {
 		// create another emoty array for that row
 		spriteArray[y] = []
 		// there are 12 images in a row, iterate through them
-		for (let x = 0; x < rows; x++) {
-			// get the image subsection there and then stor in the array
-			spriteArray[y][x] = spriteSheet.get(x * w, y * h, w, h)
-		}
+    if(rows == 1){
+      for (let x = 0; x <= rows; x++) {
+        // get the image subsection there and then stor in the array
+        spriteArray[y][x] = spriteSheet.get(x * w, y * h, w, h)
+      }
+    }else{
+      for (let x = 0; x < rows; x++) {
+        // get the image subsection there and then stor in the array
+        spriteArray[y][x] = spriteSheet.get(x * w, y * h, w, h)
+      }
+    }
 	}
 	return spriteArray
 }
@@ -162,13 +177,17 @@ function preload() {
   grade3_questions_math = loadJSON('./questions/grade3_math_question.json')
   grade4_questions_math = loadJSON('./questions/grade4_math_question.json')
   grade5_questions_math = loadJSON('./questions/grade5_math_question.json')
-  characters1SpriteSheet = loadImage('assets/characters.png')
-  characters2SpriteSheet = loadImage('assets/charactersP2.png')
+  characters1SpriteSheet = loadImage('assets/animatedCharacter.png')
+  characters2SpriteSheet = loadImage('assets/animatedCharacter1.png')
   flagSpriteSheet = loadImage('assets/rotating_orbs.png')
   background = loadImage('assets/background.png')
   platform = loadImage('assets/platform.png')
   fireBallSpriteSheet = loadImage('assets/fireball.png')
   myFont = loadFont('assets/dogica.ttf')
+  P1Idle = loadImage('assets/P1Idle.png')
+  P2Idle = loadImage('assets/P2Idle.png')
+  P1Pulling = loadImage('assets/P1Pulling.png')
+  P2Pulling = loadImage('assets/P2Pulling.png')
 
 }
 function setup() {
@@ -181,8 +200,9 @@ function setup() {
   textFont(myFont)
   chordLength = windowWidth/4
 
-  characters1 = sliceSpriteSheet(characters1SpriteSheet, 3, 4, characters1)
-  characters2 = sliceSpriteSheet(characters2SpriteSheet, 3, 4, characters2)
+  characters1 = sliceSpriteSheet(characters1SpriteSheet, 1, 9, characters1)
+  characters2 = sliceSpriteSheet(characters2SpriteSheet, 1, 9, characters2)
+  print(characters1[0])
   flagSprites = sliceSpriteSheet(flagSpriteSheet, 8,4, flagSprites)
   fireBallSprites = sliceSpriteSheet(fireBallSpriteSheet, 16, 6, fireBallSprites)
 
@@ -192,11 +212,12 @@ function setup() {
 
 function mousePressed() {
   if(actualState  == gameState.SPINNING){
-    spinner.startSpin(0.25, 0.35);
+    spinner.startSpin(0.25, 20);
   }
 }
 
 function draw() {
+  print(characters1[0])
 
   clear()
   image(background, windowWidth/2, windowHeight/2)
@@ -243,12 +264,12 @@ function draw() {
               myGrade = myButtons.indexOf(button) + 1
               print(myGrade)
               if(myGrade == 18){
-                actualState = gameState.SPINNING
+                actualState = gameState.CUSTOM
                 break
               }
 
-              player2 = new Player(windowWidth/2 - chordLength/2, 200, 1.75, 5, 0.95, 0, characters1);
-              player1 = new Player(windowWidth/2 + chordLength/2, 200, 1.5, 5, 0.95, 0, characters2);
+              player2 = new Player(windowWidth/2 - chordLength/2, 200, 1.75, 5, 0.95, 0, P1Idle, 2, P1Pulling);
+              player1 = new Player(windowWidth/2 + chordLength/2, 200, 1.5, 5, 0.95, 0, P2Idle, 1, P2Pulling);
               myFlag = new Flag(flagSprites, windowWidth/2, player1.y, 2.5, 0.95)
               print(grade1_questions_math[15].question)
               mathQuestion1 = new Questions(myGrade, 'math').getQuestions()
@@ -320,6 +341,7 @@ function draw() {
 
     break
     case gameState.IN_GAME:
+      transitionExecuted = false
       player1.draw();
       player2.draw();
 
@@ -341,11 +363,13 @@ function draw() {
           if (multipleChoice1.checkAnswer() == multipleChoice1.question[multipleChoice1.question.length - 1]) {
             print('1 won');
             player1Won = true;
+            roundWinner = 1
             actualState = gameState.TRANSITION
             startTransitionTime = millis()
             questionsGenerated = false
           }else if(multipleChoice1.checkAnswer() != multipleChoice1.question[multipleChoice1.question.length - 1]){
             player2Won = true
+            roundWinner = 2
             actualState = gameState.TRANSITION
             startTransitionTime = millis()
             questionsGenerated = false
@@ -354,11 +378,14 @@ function draw() {
           if (multipleChoice2.checkAnswer() == multipleChoice2.question[multipleChoice2.question.length - 1]) {
             print('2 won');
             player2Won = true;
+            roundWinner = 2
+            
             actualState = gameState.TRANSITION
             startTransitionTime = millis()
             questionsGenerated = false
           }else if(multipleChoice2.checkAnswer() != multipleChoice1.question[multipleChoice1.question.length - 1]){
             player1Won = true
+            roundWinner = 1
             actualState = gameState.TRANSITION
             startTransitionTime = millis()
             questionsGenerated = false
@@ -370,8 +397,12 @@ function draw() {
       if (questionTime <= 0) {
         if(player2.points > player1.points){
           player2Won = true
+          roundWinner = 2
+
         }else if(player2.points < player1.points){
           player1Won = true
+          roundWinner = 1
+
         }else{
           lostCountdown = true
           player1Won = false
@@ -382,20 +413,56 @@ function draw() {
         actualState = gameState.TRANSITION
 
       }
+      print(`loops: ${loopCounter}`)
       break;
 
     case gameState.TRANSITION:
-      player1.draw();
-      player2.draw();
+
       player1.move();
       player2.move();
 
       myFlag.draw()
       myFlag.move()
+      if(roundWinner == 2){
+        player1.draw();
+        player2.drawAnimation();
+      }else if(roundWinner == 1){
+        player2.draw();
+        player1.drawAnimation();
+      }else{
+        player1.draw()
+        player2.draw()
+      }
 
       if (!transitionExecuted) {
+
+          if (loopCounter % 3 === 0) {
+            let randomNumber = floor(random(0, 1)); // Adjusted random range to include 0
+            if (randomNumber == 0) {
+              let prizes = [
+              new Prize("Class", "#FF5733", 10),
+              new Prize("Game", "#33FF57", 20),
+              new Prize("Party", "#3357FF", 30),
+              new Prize("Movie", "#FF33A1", 40),
+              new Prize("Study", "#A133FF", 50),
+              new Prize("Music", "#FF8C33", 60),
+              ];
+              
+              spinner = new SpinnerWheel(width / 2, height / 2, 200, prizes);
+              spinner.startSpin(0.2, 0.3);
+            }
+          }
+        
         difficultyLevel += 0.5;
         transitionExecuted = true;
+        
+      }
+      if(spinner){
+        //spinner.draw()
+        spinner.spin()
+        if(spinner.selectedPrize){
+          text(spinner.selectedPrize.name, 200, 200)
+        }
       }
       if (millis() - startTransitionTime <= 3000) {
         if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <= 5){
@@ -413,12 +480,14 @@ function draw() {
           break
         }
         if (player1Won) {
+
           player1.points++
           player1Won = false
           player1.moveRight()
           player2.moveRight()
           myFlag.moveRight()
         } else if (player2Won) {
+
           player2.points++
           player2Won = false
           player1.moveLeft()
