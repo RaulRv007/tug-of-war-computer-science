@@ -437,7 +437,7 @@ function draw() {
       if (!transitionExecuted) {
 
           if (loopCounter % 3 === 0) {
-            let randomNumber = floor(random(0, 1)); // Adjusted random range to include 0
+            let randomNumber = floor(random(0, 1))
             if (randomNumber == 0) {
               let prizes = [
               new Prize("Class", "#FF5733", 10),
@@ -448,8 +448,9 @@ function draw() {
               new Prize("Music", "#FF8C33", 60),
               ];
               
-              spinner = new SpinnerWheel(width / 2, height / 2, 200, prizes);
+              spinner = new SpinnerWheel(width / 2, windowHeight - (height / 3), 100, prizes);
               spinner.startSpin(0.2, 0.3);
+              loopCounter++
             }
           }
         
@@ -458,7 +459,7 @@ function draw() {
         
       }
       if(spinner){
-        //spinner.draw()
+        spinner.draw()
         spinner.spin()
         if(spinner.selectedPrize){
           text(spinner.selectedPrize.name, 200, 200)
@@ -500,6 +501,7 @@ function draw() {
         }
       } else if (millis() - startTransitionTime >= 5000) {
         questionTime = 10
+        spinner = null
         actualState = gameState.IN_GAME
       } else {
         if (!questionsGenerated) {
