@@ -177,17 +177,19 @@ function preload() {
   grade3_questions_math = loadJSON('./questions/grade3_math_question.json')
   grade4_questions_math = loadJSON('./questions/grade4_math_question.json')
   grade5_questions_math = loadJSON('./questions/grade5_math_question.json')
+  grade6_questions_math = loadJSON('./questions/grade6_math_question.json')
+  grade7_questions_math = loadJSON('./questions/grade7_math_question.json')
   characters1SpriteSheet = loadImage('assets/animatedCharacter.png')
   characters2SpriteSheet = loadImage('assets/animatedCharacter1.png')
   flagSpriteSheet = loadImage('assets/rotating_orbs.png')
   background = loadImage('assets/background.png')
   platform = loadImage('assets/platform.png')
   fireBallSpriteSheet = loadImage('assets/fireball.png')
-  myFont = loadFont('assets/dogica.ttf')
   P1Idle = loadImage('assets/P1Idle.png')
   P2Idle = loadImage('assets/P2Idle.png')
   P1Pulling = loadImage('assets/P1Pulling.png')
   P2Pulling = loadImage('assets/P2Pulling.png')
+  myFont = loadFont('assets/dogica.ttf')
 
 }
 function setup() {
@@ -319,28 +321,6 @@ function draw() {
 
 
       break
-    case gameState.SPINNING:
-    
-    if (!spinner) {
-      let prizes = [
-        new Prize("Class", "#FF5733", 10),
-        new Prize("Game", "#33FF57", 20),
-        new Prize("Party", "#3357FF", 30),
-        new Prize("Movie", "#FF33A1", 40),
-        new Prize("Study", "#A133FF", 50),
-        new Prize("Music", "#FF8C33", 60),
-      ];
-
-      spinner = new SpinnerWheel(width / 2, height / 2, 200, prizes);
-    }
-    spinner.draw()
-    spinner.spin()
-    if(spinner.selectedPrize){
-      text(spinner.selectedPrize.name, 200, 200)
-    }
-
-
-    break
     case gameState.IN_GAME:
       transitionExecuted = false
       player1.draw();
@@ -702,6 +682,3 @@ function draw() {
 
 
 }
-
-
-

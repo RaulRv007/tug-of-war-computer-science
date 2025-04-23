@@ -105,6 +105,30 @@ class Questions {
         myQuestion.push(grade5_questions_math[this.index].correct_answer)
         return myQuestion
         break;
+      case 6:
+        myQuestion = [grade6_questions_math[this.index].question,
+        grade6_questions_math[this.index].correct_answer,
+        grade6_questions_math[this.index].incorrect_answer_1,
+        grade6_questions_math[this.index].incorrect_answer_2,
+        grade6_questions_math[this.index].incorrect_answer_3,
+        ]
+
+        myQuestion = shuffleArray(myQuestion)
+        myQuestion.push(grade6_questions_math[this.index].correct_answer)
+        return myQuestion
+        break;
+      case 7:
+        myQuestion = [grade7_questions_math[this.index].question,
+        grade7_questions_math[this.index].correct_answer,
+        grade7_questions_math[this.index].incorrect_answer_1,
+        grade7_questions_math[this.index].incorrect_answer_2,
+        grade7_questions_math[this.index].incorrect_answer_3,
+        ]
+
+        myQuestion = shuffleArray(myQuestion)
+        myQuestion.push(grade7_questions_math[this.index].correct_answer)
+        return myQuestion
+        break;
       case 13:
         return this.genQuestions(true, 0)
       case 14:
