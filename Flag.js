@@ -27,10 +27,10 @@ class Flag{
 		}
 
 	}
-    moveRight(){
-        this.velocity = this.force
+    moveRight(factor){
+        this.velocity = this.force*factor
     }
-    moveLeft(){
-        this.velocity = -this.force
+    moveLeft(factor){
+        this.velocity = -this.force*factor
     }
 }

@@ -16,8 +16,6 @@ class Player {
 	}
 	draw(){
 		image(this.sprites, this.x, this.y, this.width, this.height)
-
-		
 	}
 	drawAnimation(){
 
