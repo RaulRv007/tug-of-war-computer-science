@@ -223,7 +223,7 @@ function draw() {
   image(background, windowWidth/2, windowHeight/2)
 
   let platformHeightAdjusted = (windowWidth - windowWidth / 4) * (290 / platform.width);
-  image(platform, windowWidth / 2, player2.y + player1.height/2 + platformHeightAdjusted / 2, windowWidth - windowWidth / 4, platformHeightAdjusted);
+  image(platform, windowWidth / 2, platformHeight + platformHeightAdjusted/2 - player1.height/2, windowWidth - windowWidth / 4, platformHeightAdjusted);
   text(player2.points, 40, 40)
   text(player1.points, windowWidth-40, 40)
 
@@ -268,8 +268,9 @@ function draw() {
                 break
               }
 
-              player2 = new Player(windowWidth/2 - chordLength/2, 200, 1.75, 5, 0.95, 0, P1Idle, 2, P1Pulling);
-              player1 = new Player(windowWidth/2 + chordLength/2, 200, 1.5, 5, 0.95, 0, P2Idle, 1, P2Pulling);
+              player2 = new Player(windowWidth/2 - chordLength/2, 150, 1.75, 5, 0.95, 0, P1Idle, 2, P1Pulling);
+              player1 = new Player(windowWidth/2 + chordLength/2, 150, 1.5, 5, 0.95, 0, P2Idle, 1, P2Pulling);
+              platformHeight = player1.y
               myFlag = new Flag(flagSprites, windowWidth/2, player1.y, 2.5, 0.95)
               print(grade1_questions_math[15].question)
               mathQuestion1 = new Questions(myGrade, 'math').getQuestions()
@@ -354,8 +355,8 @@ function draw() {
       if (frameCount % fps == 0) {
         questionTime--
       }
-      text(questionTime, windowWidth/2 - 50, 50, 100, 100)
-      rect(windowWidth/2 -50, 150, questionTime*10, 10)
+      text(questionTime, windowWidth/2 - 50, 450, 100, 100)
+      rect(windowWidth/2 -50, 550, questionTime*10, 10)
 
 
       if (mouseIsPressed && !wasMousePressed) {
@@ -417,9 +418,9 @@ function draw() {
       break;
 
     case gameState.TRANSITION:
+
       if(spinner){
         if(!spinner.spinning){
-
           player1.move()
           player2.move()
         }
@@ -455,7 +456,7 @@ function draw() {
               new Prize("Music", "#FF8C33", 60),
               ];
               
-              spinner = new SpinnerWheel(width / 2, windowHeight - (height / 3), 170, prizes);
+              spinner = new SpinnerWheel(width / 2, windowHeight - (height / 2), 170, prizes);
               spinner.startSpin(0.2, 0.3);
               loopCounter++
             }
