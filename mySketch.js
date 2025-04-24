@@ -59,6 +59,7 @@ let grade9_questions_math
 let grade10_questions_math
 let grade11_questions_math
 let grade12_questions_math
+let custom_question
 
 let doneQuestions = []
 
@@ -182,6 +183,7 @@ function preload() {
   grade5_questions_math = loadJSON('./questions/grade5_math_question.json')
   grade6_questions_math = loadJSON('./questions/grade6_math_question.json')
   grade7_questions_math = loadJSON('./questions/grade7_math_question.json')
+  custom_question = loadJSON('./questions/quiz.json')
   characters1SpriteSheet = loadImage('assets/animatedCharacter.png')
   characters2SpriteSheet = loadImage('assets/animatedCharacter1.png')
   flagSpriteSheet = loadImage('assets/rotating_orbs.png')
@@ -271,8 +273,9 @@ function draw() {
               myGrade = myButtons.indexOf(button) + 1
               print(myGrade)
               if(myGrade == 18){
-                actualState = gameState.CUSTOM
-                break
+                numberOfQuestions = Array.isArray(custom_question) ? custom_question.length : Object.keys(custom_question).length;
+                print(`number of questions: ${numberOfQuestions}`)
+                print(`number of questions: ${custom_question[0].question}`)
               }
 
               player2 = new Player(windowWidth/2 - chordLength/2, 150, 1.75, 5, 0.95, 0, P1Idle, 2, P1Pulling);
@@ -282,8 +285,8 @@ function draw() {
               }
               myFlag = new Flag(flagSprites, windowWidth/2, player1.y, 2.5, 0.95)
               print(grade1_questions_math[15].question)
-              mathQuestion1 = new Questions(myGrade, 'math').getQuestions()
-              mathQuestion2 = new Questions(myGrade, 'math').getQuestions()
+              mathQuestion1 = new Questions(myGrade, 'math').getQuestions(numberOfQuestions)
+              mathQuestion2 = new Questions(myGrade, 'math').getQuestions(numberOfQuestions)
               widthQuiz = (windowWidth/6) + windowWidth/24
               heightQuiz = windowHeight/9
               try {
@@ -292,8 +295,8 @@ function draw() {
                 multipleChoice1 = new MultipleChoice(mathQuestion2, windowWidth - widthQuiz, windowHeight - (heightQuiz/2)*5, widthQuiz, heightQuiz)
                 multipleChoice1.drawMultipleChoice()
               } catch (error) {
-                mathQuestion1 = new Questions(myGrade, 'math').getQuestions()
-                mathQuestion2 = new Questions(myGrade, 'math').getQuestions()
+                mathQuestion1 = new Questions(myGrade, 'math').getQuestions(numberOfQuestions)
+                mathQuestion2 = new Questions(myGrade, 'math').getQuestions(numberOfQuestions)
               }
               actualState = gameState.IN_GAME
               
@@ -337,14 +340,14 @@ function draw() {
         player1.draw();
       }
       if (!questionsGenerated) {
-        mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+        mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
         questionsGenerated = true;
       }
       try {
         multipleChoice1 = new MultipleChoice(mathQuestion1, windowWidth/2-widthQuiz/2, windowHeight/2-  heightQuiz/2, widthQuiz, heightQuiz)
         multipleChoice1.drawMultipleChoice()
       } catch (error) {
-        mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+        mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
       }
       text(`only player ${roundWinner} can answer`, 100, 100)
       if (mouseIsPressed && !wasMousePressed) {
@@ -523,8 +526,8 @@ function draw() {
           spinner = null
           actualState = gameState.IN_GAME
           if (!questionsGenerated) {
-            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
-            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
+            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
             questionsGenerated = true;
           }
           try {
@@ -533,8 +536,8 @@ function draw() {
             multipleChoice1 = new MultipleChoice(mathQuestion2, windowWidth - widthQuiz, windowHeight - (heightQuiz/2)*5, widthQuiz, heightQuiz)
             multipleChoice1.drawMultipleChoice()
           } catch (error) {
-            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
-            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
+            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
           }
         } else {
   
@@ -588,8 +591,8 @@ function draw() {
           actualState = gameState.IN_GAME
         } else {
           if (!questionsGenerated) {
-            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
-            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
+            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
             questionsGenerated = true;
           }
           try {
@@ -598,8 +601,8 @@ function draw() {
             multipleChoice1 = new MultipleChoice(mathQuestion2, windowWidth - widthQuiz, windowHeight - (heightQuiz/2)*5, widthQuiz, heightQuiz)
             multipleChoice1.drawMultipleChoice()
           } catch (error) {
-            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
-            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
+            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
           }
   
         }
@@ -725,8 +728,8 @@ function draw() {
           spinner = null
           actualState = gameState.IN_GAME
           if (!questionsGenerated) {
-            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
-            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
+            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
             questionsGenerated = true;
           }
           try {
@@ -735,8 +738,8 @@ function draw() {
             multipleChoice1 = new MultipleChoice(mathQuestion2, windowWidth - widthQuiz, windowHeight - (heightQuiz/2)*5, widthQuiz, heightQuiz)
             multipleChoice1.drawMultipleChoice()
           } catch (error) {
-            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
-            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
+            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
           }
         } else {
   
@@ -798,8 +801,8 @@ function draw() {
           actualState = gameState.IN_GAME
         } else {
           if (!questionsGenerated) {
-            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
-            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
+            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
             questionsGenerated = true;
           }
           try {
@@ -808,8 +811,8 @@ function draw() {
             multipleChoice1 = new MultipleChoice(mathQuestion2, windowWidth - widthQuiz, windowHeight - (heightQuiz/2)*5, widthQuiz, heightQuiz)
             multipleChoice1.drawMultipleChoice()
           } catch (error) {
-            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
-            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
+            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
           }
   
         }

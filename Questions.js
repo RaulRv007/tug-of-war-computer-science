@@ -35,11 +35,11 @@ class Questions {
   
     return Array.from(options);
   }
-  getQuestions() {
+  getQuestions(numberOfQuestions) {
     let myQuestion
 
     do {
-      this.index = floor(random(0, 50))
+      this.index = floor(random(0, numberOfQuestions))
     } while (doneQuestions.includes(this.index))
 
     doneQuestions.push(this.index)
@@ -139,6 +139,18 @@ class Questions {
         return this.genQuestions(false, 2)
       case 17:
         return this.genQuestions(false, 3)
+      case 18:
+        myQuestion = [custom_question[this.index].question,
+        custom_question[this.index].correct_answer,
+        custom_question[this.index].incorrect_answer_1,
+        custom_question[this.index].incorrect_answer_2,
+        custom_question[this.index].incorrect_answer_3,
+        ]
+
+        myQuestion = shuffleArray(myQuestion)
+        myQuestion.push(custom_question[this.index].correct_answer)
+        return myQuestion
+        break
       default:
         break;
     }
