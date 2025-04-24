@@ -33,7 +33,9 @@ const gameState = {
   BEGINNING: 'begin',
   WINNING: 'win',
   CUSTOM: 'custom',
-  SPINNING: 'spinning'
+  SPINNING: 'spinning',
+  EXTRA_QUESTION: 'extra',
+  TRANSITION_EXTRA: 'transition_extra'
 }
 
 let actualState = gameState.MAIN_SCREEN
@@ -132,6 +134,7 @@ let spinner
 let loopCounter = 0
 
 let roundWinner = 0
+let extraWinner = 0
 
 function shuffleArray(array) {
   const question = array[0];
@@ -324,6 +327,60 @@ function draw() {
 
 
       break
+
+    case gameState.EXTRA_QUESTION:
+      if(roundWinner == 1){
+        player1.drawAnimation();
+        player2.draw();
+      }else{
+        player2.drawAnimation();
+        player1.draw();
+      }
+      if (!questionsGenerated) {
+        mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+        questionsGenerated = true;
+      }
+      try {
+        multipleChoice1 = new MultipleChoice(mathQuestion1, windowWidth/2-widthQuiz/2, windowHeight/2-  heightQuiz/2, widthQuiz, heightQuiz)
+        multipleChoice1.drawMultipleChoice()
+      } catch (error) {
+        mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+      }
+      text(`only player ${roundWinner} can answer`, 100, 100)
+      if (mouseIsPressed && !wasMousePressed) {
+        print('mouse pressed')
+        if(roundWinner == 1){
+          if (multipleChoice1.checkAnswer()) {
+            print(multipleChoice1.question[multipleChoice1.question.length - 1])
+            if (multipleChoice1.checkAnswer() == multipleChoice1.question[multipleChoice1.question.length - 1]) {
+              extraWinner = 2
+              actualState = gameState.TRANSITION_EXTRA
+            }else if(multipleChoice1.checkAnswer() != multipleChoice1.question[multipleChoice1.question.length - 1]){
+              extraWinner = 1
+              actualState = gameState.TRANSITION_EXTRA
+
+            }
+          }
+        }else{
+
+          if (multipleChoice1.checkAnswer()) {
+            print(multipleChoice1.checkAnswer())
+            if (multipleChoice1.checkAnswer() == multipleChoice1.question[multipleChoice1.question.length - 1]) {
+              extraWinner = 1
+              actualState = gameState.TRANSITION_EXTRA
+
+              
+            }else if(multipleChoice1.checkAnswer() != multipleChoice1.question[multipleChoice1.question.length - 1]){
+              extraWinner = 2
+              actualState = gameState.TRANSITION_EXTRA
+
+
+            }
+          }
+        }
+      }
+      wasMousePressed = mouseIsPressed;
+      break
     case gameState.IN_GAME:
       transitionExecuted = false
       player1.draw();
@@ -376,6 +433,7 @@ function draw() {
           }
         }
       }
+      spinner = null
       wasMousePressed = mouseIsPressed;
 
       if (questionTime <= 0) {
@@ -399,6 +457,155 @@ function draw() {
       }
       print(`loops: ${loopCounter}`)
       break;
+    case gameState.TRANSITION_EXTRA:
+      player1.move()
+      player2.move()
+
+      myFlag.draw()
+      myFlag.move()
+      if(roundWinner == 2){
+        player1.draw();
+        player2.drawAnimation();
+      }else if(roundWinner == 1){
+        player2.draw();
+        player1.drawAnimation();
+      }else{
+        player1.draw()
+        player2.draw()
+      }
+
+      if (!transitionExecuted) {
+        
+        difficultyLevel += 0.5;
+        transitionExecuted = true;
+        
+      }
+      try {
+        if (millis() - startTransitionTime <= 7000) {
+          print('entra')
+          if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <= 5){
+            winner = 2
+            actualState = gameState.WINNING
+            animationState = animStates.GOING_UP
+            startTransitionTime = millis()
+            break
+          }else if(dist(myFlag.x, myFlag.y, player1.x, player1.y) <= 5){
+            winner = 1
+            actualState = gameState.WINNING
+            animationState = animStates.GOING_UP
+            startTransitionTime = millis()
+  
+            break
+          }
+          if (extraWinner == 2) {
+            player1.points += 3
+            player1Won = false
+            player1.moveRight()
+            player2.moveRight()
+            player1.move()
+            player2.move()
+            myFlag.moveRight(3)
+/////////////////////////////////////////////////////////////////////
+          } else if (extraWinner == 1) {
+  
+            player2.points += 3
+            player2Won = false
+            player1.moveLeft()
+            player2.moveLeft()
+            player1.move()
+            player2.move()
+            myFlag.moveLeft(3)
+/////////////////////////////////////////////////////////////////////
+          }
+        extraWinner = 0
+        } else if (millis() - startTransitionTime >= 5000) {
+          questionTime = 10
+          spinner = null
+          actualState = gameState.IN_GAME
+          if (!questionsGenerated) {
+            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+            questionsGenerated = true;
+          }
+          try {
+            multipleChoice2 = new MultipleChoice(mathQuestion1, 0 + widthQuiz, windowHeight - (heightQuiz/2)*5, widthQuiz, heightQuiz)
+            multipleChoice2.drawMultipleChoice()
+            multipleChoice1 = new MultipleChoice(mathQuestion2, windowWidth - widthQuiz, windowHeight - (heightQuiz/2)*5, widthQuiz, heightQuiz)
+            multipleChoice1.drawMultipleChoice()
+          } catch (error) {
+            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+          }
+        } else {
+  
+        }
+      } catch (error) {
+        if (millis() - startTransitionTime <= 7000) {
+          print('entra')
+          if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <= 5){
+            winner = 2
+            actualState = gameState.WINNING
+            animationState = animStates.GOING_UP
+            startTransitionTime = millis()
+            break
+          }else if(dist(myFlag.x, myFlag.y, player1.x, player1.y) <= 5){
+            winner = 1
+            actualState = gameState.WINNING
+            animationState = animStates.GOING_UP
+            startTransitionTime = millis()
+  
+            break
+          }
+          if (player1Won) {
+            player1.points++
+            player1Won = false
+            player1.moveRight()
+            player2.moveRight()
+/////////////////////////////////////////////////////////////////////////
+          } else if (player2Won) {
+  
+            player2.points++
+            player2Won = false
+            player1.moveLeft()
+            player2.moveLeft()
+            if(spinner){
+              if(spinner.selectedPrize.name == 'Double'){
+                myFlag.moveLeft(2)
+              }else{
+                myFlag.moveLeft(1)
+              }
+            }else{
+              myFlag.moveLeft(1)
+            }
+          }else if(lostCountdown){
+            lostCountdown = false
+            player1.moveRight()
+            player2.moveLeft()
+          }
+        } else if (millis() - startTransitionTime >= 5000) {
+          questionTime = 10
+          spinner = null
+          actualState = gameState.IN_GAME
+        } else {
+          if (!questionsGenerated) {
+            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+            questionsGenerated = true;
+          }
+          try {
+            multipleChoice2 = new MultipleChoice(mathQuestion1, 0 + widthQuiz, windowHeight - (heightQuiz/2)*5, widthQuiz, heightQuiz)
+            multipleChoice2.drawMultipleChoice()
+            multipleChoice1 = new MultipleChoice(mathQuestion2, windowWidth - widthQuiz, windowHeight - (heightQuiz/2)*5, widthQuiz, heightQuiz)
+            multipleChoice1.drawMultipleChoice()
+          } catch (error) {
+            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
+          }
+  
+        }
+      }
+
+      break
 
     case gameState.TRANSITION:
 
@@ -428,15 +635,11 @@ function draw() {
       if (!transitionExecuted) {
 
           if (loopCounter % 1 === 0) {
-            let randomNumber = floor(random(0, 2))
+            let randomNumber = floor(random(0, 1))
             if (randomNumber == 0) {
               let prizes = [
               new Prize("Double", "#FF5733", 10),
-              new Prize("Game", "#33FF57", 20),
-              new Prize("Party", "#3357FF", 30),
-              new Prize("Movie", "#FF33A1", 40),
-              new Prize("Study", "#A133FF", 50),
-              new Prize("Music", "#FF8C33", 60),
+              new Prize("Extra", "#33FF57", 20),
               ];
               
               spinner = new SpinnerWheel(width / 2, windowHeight - (height / 2), 170, prizes);
@@ -472,6 +675,12 @@ function draw() {
             startTransitionTime = millis()
   
             break
+          }
+          if(spinner){
+            if(spinner.selectedPrize.name == 'Extra'){
+              actualState = gameState.EXTRA_QUESTION
+              break
+            }
           }
           if (player1Won) {
             player1.points++
