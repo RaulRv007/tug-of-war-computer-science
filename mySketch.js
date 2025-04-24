@@ -209,7 +209,6 @@ function setup() {
   fireBallSprites = sliceSpriteSheet(fireBallSpriteSheet, 16, 6, fireBallSprites)
 
   textSize(distanceBetweenButtons/3)
-  platformHeight = player1.y + 40
 }
 
 function mousePressed() {
@@ -219,13 +218,16 @@ function mousePressed() {
 }
 
 function draw() {
-  print(characters1[0])
+  print(platformHeight)
 
   clear()
   image(background, windowWidth/2, windowHeight/2)
 
   let platformHeightAdjusted = (windowWidth - windowWidth / 4) * (290 / platform.width);
-  image(platform, windowWidth / 2, platformHeight + platformHeightAdjusted/2 - player1.height/2, windowWidth - windowWidth / 4, platformHeightAdjusted);
+
+  if(platformHeight!=0){
+    image(platform, windowWidth / 2, platformHeight, windowWidth - windowWidth / 4, platformHeightAdjusted);
+  }
   text(player2.points, 40, 40)
   text(player1.points, windowWidth-40, 40)
 
@@ -272,7 +274,9 @@ function draw() {
 
               player2 = new Player(windowWidth/2 - chordLength/2, 150, 1.75, 5, 0.95, 0, P1Idle, 2, P1Pulling);
               player1 = new Player(windowWidth/2 + chordLength/2, 150, 1.5, 5, 0.95, 0, P2Idle, 1, P2Pulling);
-              platformHeight = player1.y
+              if (platformHeight == 0) {
+                platformHeight = player2.y + player2.height / 2+ platformHeightAdjusted / 2;
+              }
               myFlag = new Flag(flagSprites, windowWidth/2, player1.y, 2.5, 0.95)
               print(grade1_questions_math[15].question)
               mathQuestion1 = new Questions(myGrade, 'math').getQuestions()
@@ -288,7 +292,6 @@ function draw() {
                 mathQuestion1 = new Questions(myGrade, 'math').getQuestions()
                 mathQuestion2 = new Questions(myGrade, 'math').getQuestions()
               }
-              platformHeight = player1.y + 40
               actualState = gameState.IN_GAME
               
             }
@@ -424,8 +427,8 @@ function draw() {
 
       if (!transitionExecuted) {
 
-          if (loopCounter % 3 === 0) {
-            let randomNumber = floor(random(0, 1))
+          if (loopCounter % 1 === 0) {
+            let randomNumber = floor(random(0, 2))
             if (randomNumber == 0) {
               let prizes = [
               new Prize("Double", "#FF5733", 10),
@@ -512,7 +515,6 @@ function draw() {
           questionTime = 10
           spinner = null
           actualState = gameState.IN_GAME
-        } else {
           if (!questionsGenerated) {
             mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
             mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
@@ -527,6 +529,7 @@ function draw() {
             mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
             mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions()
           }
+        } else {
   
         }
       } catch (error) {
