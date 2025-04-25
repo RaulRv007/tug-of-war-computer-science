@@ -1,5 +1,6 @@
 import streamlit as st
 import json
+import os
 
 st.title("📚 Quiz Creator")
 
@@ -29,16 +30,11 @@ for i in range(num_questions):
 
 st.markdown("---")
 
-if st.button("✅ Generate Quiz JSON"):
+if st.button("💾 Save Quiz to File"):
     if len(quiz) == num_questions:
-        st.success("Quiz JSON generated successfully!")
-        quiz_json = json.dumps(quiz, indent=2)
-        st.code(quiz_json, language='json')
-        st.download_button(
-            label="📥 Download JSON file",
-            data=quiz_json,
-            file_name="quiz.json",
-            mime="application/json"
-        )
+        with open("./questions/quiz.json", "w", encoding="utf-8") as f:
+            json.dump(quiz, f, indent=2)
+        st.success("✅ Quiz saved successfully to quiz.json!")
+        st.code(json.dumps(quiz, indent=2), language='json')
     else:
-        st.warning("Please fill out all questions completely.")
+        st.warning("⚠️ Please fill out all questions completely before saving.")

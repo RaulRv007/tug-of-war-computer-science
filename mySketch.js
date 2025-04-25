@@ -129,7 +129,7 @@ let difficultyLevel = 1
 
 let inputField
 let inputText
-let numberOfQuestions = 0
+let numberOfQuestions = 50
 
 let spinner
 let loopCounter = 0
@@ -223,10 +223,13 @@ function mousePressed() {
 }
 
 function draw() {
-  print(platformHeight)
+
 
   clear()
   image(background, windowWidth/2, windowHeight/2)
+  if(doneQuestions.length >= numberOfQuestions){
+    doneQuestions = []
+  }
 
   let platformHeightAdjusted = (windowWidth - windowWidth / 4) * (290 / platform.width);
 
@@ -398,8 +401,8 @@ function draw() {
       if (frameCount % fps == 0) {
         questionTime--
       }
-      text(questionTime, windowWidth/2 - 50, 450, 100, 100)
-      rect(windowWidth/2 -50, 550, questionTime*10, 10)
+      text(questionTime, windowWidth/2 - 50, windowHeight - windowHeight/6, 100, 100)
+      rect(windowWidth/2 -50, windowHeight - windowHeight/8, questionTime*10, 10)
 
 
       if (mouseIsPressed && !wasMousePressed) {
@@ -458,7 +461,6 @@ function draw() {
         actualState = gameState.TRANSITION
 
       }
-      print(`loops: ${loopCounter}`)
       break;
     case gameState.TRANSITION_EXTRA:
       player1.move()
@@ -507,7 +509,7 @@ function draw() {
             player2.moveRight()
             player1.move()
             player2.move()
-            myFlag.moveRight(3)
+            myFlag.moveRight(2)
 /////////////////////////////////////////////////////////////////////
           } else if (extraWinner == 1) {
   
@@ -517,7 +519,7 @@ function draw() {
             player2.moveLeft()
             player1.move()
             player2.move()
-            myFlag.moveLeft(3)
+            myFlag.moveLeft(2)
 /////////////////////////////////////////////////////////////////////
           }
         extraWinner = 0
@@ -642,10 +644,16 @@ function draw() {
             if (randomNumber == 0) {
               let prizes = [
               new Prize("Double", "#FF5733", 10),
+              new Prize("Nothing", "black", 20),
               new Prize("Extra", "#33FF57", 20),
+              new Prize("Nothing", "black", 20),
+              new Prize("DANCE", "pink", 20),
+              new Prize("Nothing", "black", 20),
+              new Prize("YELLLL", "blue", 20),
+              new Prize("Nothing", "black", 20),
               ];
               
-              spinner = new SpinnerWheel(width / 2, windowHeight - (height / 2), 170, prizes);
+              spinner = new SpinnerWheel(width / 2, windowHeight - windowWidth/8.5, windowWidth/9, prizes);
               spinner.startSpin(0.2, 0.3);
               loopCounter++
             }
@@ -684,6 +692,19 @@ function draw() {
               actualState = gameState.EXTRA_QUESTION
               break
             }
+            if(roundWinner == 1){
+              if(spinner.selectedPrize.name == 'DANCE'){
+                text('Player on the right, DANCE', windowWidth/2, windowHeight/8)
+              }else if(spinner.selectedPrize.name == 'YELLLL'){
+                text('Player on the right, YELLLL SOMETHING', windowWidth/2, windowHeight/8)
+              }
+            }else if(roundWinner == 2){
+              if(spinner.selectedPrize.name == 'DANCE'){
+                text('Player on the left, DANCE', windowWidth/2, windowHeight/8)
+              }else if(spinner.selectedPrize.name == 'YELLLL'){
+                text('Player on the left, YELLLL SOMETHING', windowWidth/2, windowHeight/8)
+              }
+            }
           }
           if (player1Won) {
             player1.points++
@@ -698,6 +719,7 @@ function draw() {
               }else{
                 myFlag.moveRight(1)
               }
+
             }else{
               myFlag.moveRight(1)
             }
@@ -710,8 +732,10 @@ function draw() {
             player1.move()
             player2.move()
             if(spinner){
+
               if(spinner.selectedPrize.name == 'Double'){
                 myFlag.moveLeft(2)
+
               }else{
                 myFlag.moveLeft(1)
               }
@@ -728,8 +752,8 @@ function draw() {
           spinner = null
           actualState = gameState.IN_GAME
           if (!questionsGenerated) {
-            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
-            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
+            mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel).getQuestions(numberOfQuestions)
+            mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel).getQuestions(numberOfQuestions)
             questionsGenerated = true;
           }
           try {
@@ -799,7 +823,6 @@ function draw() {
           questionTime = 10
           spinner = null
           actualState = gameState.IN_GAME
-        } else {
           if (!questionsGenerated) {
             mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
             mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
@@ -814,6 +837,7 @@ function draw() {
             mathQuestion1 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
             mathQuestion2 = new Questions(myGrade, 'math', difficultyLevel++).getQuestions(numberOfQuestions)
           }
+        } else {
   
         }
       }
