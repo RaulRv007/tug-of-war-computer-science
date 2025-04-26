@@ -226,8 +226,6 @@ function mousePressed() {
 }
 
 function draw() {
-
-
   clear()
   image(background, windowWidth/2, windowHeight/2)
   player1.width = player1.points*7 + 1 * windowWidth/20
@@ -235,10 +233,10 @@ function draw() {
   player1.height  =player1.width
   player2.height  =player2.width
   if(player1.width > lastPlayer1Width){
-    player1.y -= 2500/windowWidth
+    player1.y -= 3750/windowWidth
   }
   if(player2.width > lastPlayer2Width){
-    player2.y -= 2500 / windowWidth
+    player2.y -= 3750 / windowWidth
   }
 
 
@@ -350,6 +348,7 @@ function draw() {
       break
 
     case gameState.EXTRA_QUESTION:
+      myFlag.draw()
       if(roundWinner == 1){
         player1.drawAnimation();
         player2.draw();
@@ -429,13 +428,13 @@ function draw() {
       text(questionTime, windowWidth/2 - 50, windowHeight - windowHeight/6, 100, 100)
       rect(windowWidth/2 -50, windowHeight - windowHeight/8, questionTime*10, 10)
 
-      if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <= 10){
+      if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <= 20){
         winner = 2
         actualState = gameState.WINNING
         animationState = animStates.GOING_UP
         startTransitionTime = millis()
         break
-      }else if(dist(myFlag.x, myFlag.y, player1.x, player1.y) <= 10){
+      }else if(dist(myFlag.x, myFlag.y, player1.x, player1.y) <= 20){
         winner = 1
         actualState = gameState.WINNING
         animationState = animStates.GOING_UP
@@ -538,13 +537,13 @@ function draw() {
       try {
         if (millis() - startTransitionTime <= 7000) {
           print('entra')
-          if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <= 10){
+          if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <= 20){
             winner = 2
             actualState = gameState.WINNING
             animationState = animStates.GOING_UP
             startTransitionTime = millis()
             break
-          }else if(dist(myFlag.x, myFlag.y, player1.x, player1.y) <= 10){
+          }else if(dist(myFlag.x, myFlag.y, player1.x, player1.y) <= 20){
             winner = 1
             actualState = gameState.WINNING
             animationState = animStates.GOING_UP
@@ -555,8 +554,8 @@ function draw() {
           if (extraWinner == 2) {
             player1.points += 3
             player1Won = false
-            player1.moveRight()
-            player2.moveRight()
+            player1.moveRight(2)
+            player2.moveRight(2)
             player1.move()
             player2.move()
             myFlag.moveRight(2)
@@ -597,13 +596,13 @@ function draw() {
       } catch (error) {
         if (millis() - startTransitionTime <= 7000) {
           print('entra')
-          if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <=10){
+          if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <=20){
             winner = 2
             actualState = gameState.WINNING
             animationState = animStates.GOING_UP
             startTransitionTime = millis()
             break
-          }else if(dist(myFlag.x, myFlag.y, player1.x, player1.y) <= 10){
+          }else if(dist(myFlag.x, myFlag.y, player1.x, player1.y) <= 20){
             winner = 1
             actualState = gameState.WINNING
             animationState = animStates.GOING_UP
@@ -732,13 +731,13 @@ function draw() {
       try {
         if (millis() - startTransitionTime <= 7000 && !spinner.spinning) {
           print('entra')
-          if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <= 10){
+          if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <= 20){
             winner = 2
             actualState = gameState.WINNING
             animationState = animStates.GOING_UP
             startTransitionTime = millis()
             break
-          }else if(dist(myFlag.x, myFlag.y, player1.x, player1.y) <= 10){
+          }else if(dist(myFlag.x, myFlag.y, player1.x, player1.y) <= 20){
             winner = 1
             actualState = gameState.WINNING
             animationState = animStates.GOING_UP
@@ -847,13 +846,13 @@ function draw() {
       } catch (error) {
         if (millis() - startTransitionTime <= 7000) {
           print('entra')
-          if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <= 10){
+          if(dist(myFlag.x, myFlag.y, player2.x, player2.y) <= 20){
             winner = 2
             actualState = gameState.WINNING
             animationState = animStates.GOING_UP
             startTransitionTime = millis()
             break
-          }else if(dist(myFlag.x, myFlag.y, player1.x, player1.y) <= 10){
+          }else if(dist(myFlag.x, myFlag.y, player1.x, player1.y) <= 20){
             winner = 1
             actualState = gameState.WINNING
             animationState = animStates.GOING_UP
