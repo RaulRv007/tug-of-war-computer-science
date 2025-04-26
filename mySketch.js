@@ -137,6 +137,9 @@ let loopCounter = 0
 let roundWinner = 0
 let extraWinner = 0
 
+let lastPlayer1Width = 0
+let lastPlayer2Width = 0
+
 function shuffleArray(array) {
   const question = array[0];
   const choices = array.slice(1, 5); // answers
@@ -227,10 +230,17 @@ function draw() {
 
   clear()
   image(background, windowWidth/2, windowHeight/2)
-  player1.width = player1.points/2 + 1 * windowWidth/20
-  player2.width = player2.points/2 + 1 * windowWidth/20
+  player1.width = player1.points*7 + 1 * windowWidth/20
+  player2.width = player2.points*7 + 1 * windowWidth/20
   player1.height  =player1.width
   player2.height  =player2.width
+  if(player1.width > lastPlayer1Width){
+    player1.y -= 2500/windowWidth
+  }
+  if(player2.width > lastPlayer2Width){
+    player2.y -= 2500 / windowWidth
+  }
+
 
   if(doneQuestions.length >= numberOfQuestions){
     doneQuestions = []
@@ -1001,6 +1011,7 @@ function draw() {
       break;
   }
 
-
+  lastPlayer1Width = player1.width
+  lastPlayer2Width = player2.width
 
 }
