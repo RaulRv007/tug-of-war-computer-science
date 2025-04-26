@@ -23,17 +23,18 @@ class Player {
 
 	}
 	move(){
-		this.x += this.velocity;
+		/*this.x += this.velocity;
 		this.velocity *= this.friction
 		if (this.velocity < 0.1 && this.velocity > -0.1) {
 			this.velocity = 0;
-		}
+		}*/
+		this.x += this.velocity;
 
 	}
-	moveRight(){
-		this.velocity = this.force
+	moveRight(factor){
+		this.velocity += this.force*factor
 	}
-	moveLeft(){
-		this.velocity = -this.force
+	moveLeft(factor){
+		this.velocity += -this.force*factor
 	}
 }

@@ -1,20 +1,24 @@
 class MultipleChoice{
-    constructor(question, x, y, sizeX, sizeY){
+    constructor(question, x, y, sizeX, sizeY, color){
       this.question = question
       this.x = x
       this.y = y
       this.sizeX = sizeX
       this.sizeY = sizeY
       this.answerIndex = 0
+      this.color = color
+      this.canAnswer = true
   
     }
     drawMultipleChoice(){
+      fill(this.color)
       rect(this.x, this.y + this.sizeY/2, this.sizeX, this.sizeY)
       rect(this.x - this.sizeX, this.y - this.sizeY/2, this.sizeX*2, this.sizeY)
       rect(this.x, this.y + this.sizeY*3/2, this.sizeX, this.sizeY)
       rect(this.x - this.sizeX, this.y + this.sizeY*3/2, this.sizeX, this.sizeY)
       rect(this.x - this.sizeX, this.y + this.sizeY/2, this.sizeX, this.sizeY)
       textSize(this.sizeY/8)
+      fill('black')
       if(this.question[0].length >= 30){
         let words = this.question[0].split(' ');
         let line1 = '';
@@ -40,15 +44,17 @@ class MultipleChoice{
     }
   
      checkAnswer(){
-      if(mouseIsPressed){
-        if(mouseX >= this.x-this.sizeX && mouseX<=this.x && mouseY >= this.y + this.sizeY/2 && mouseY <= this.y + 3*(this.sizeY/2)){
-          return this.question[2]
-        }else if(mouseX >= this.x-this.sizeX && mouseX<=this.x && mouseY >= this.y + 3*(this.sizeY/2) && mouseY <= this.y + 3*this.sizeY - this.sizeY/2){
-          return this.question[3]
-        }else if(mouseX >= this.x && mouseX<=this.x + this.sizeX&& mouseY >= this.y + this.sizeY/2 && mouseY <= this.y + 3*(this.sizeY/2)){
-          return this.question[1]
-        }else if(mouseX >= this.x && mouseX<=this.x + this.sizeX&& mouseY >= this.y + 3*(this.sizeY/2) && mouseY <= this.y + 3*this.sizeY - this.sizeY/2){
-          return this.question[4]
+      if(this.canAnswer){
+        if(mouseIsPressed){
+          if(mouseX >= this.x-this.sizeX && mouseX<=this.x && mouseY >= this.y + this.sizeY/2 && mouseY <= this.y + 3*(this.sizeY/2)){
+            return this.question[2]
+          }else if(mouseX >= this.x-this.sizeX && mouseX<=this.x && mouseY >= this.y + 3*(this.sizeY/2) && mouseY <= this.y + 3*this.sizeY - this.sizeY/2){
+            return this.question[3]
+          }else if(mouseX >= this.x && mouseX<=this.x + this.sizeX&& mouseY >= this.y + this.sizeY/2 && mouseY <= this.y + 3*(this.sizeY/2)){
+            return this.question[1]
+          }else if(mouseX >= this.x && mouseX<=this.x + this.sizeX&& mouseY >= this.y + 3*(this.sizeY/2) && mouseY <= this.y + 3*this.sizeY - this.sizeY/2){
+            return this.question[4]
+          }
         }
       }
      }

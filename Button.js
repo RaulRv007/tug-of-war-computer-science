@@ -7,7 +7,9 @@ class Button{
         this.h = h
     }
     draw(){
+        fill('white')
         rect(this.x, this.y, this.w, this.h)
+        fill('black')
         text(this.text, this.x + this.w/2, this.y + this.h/2)
     }
     isPressed(){

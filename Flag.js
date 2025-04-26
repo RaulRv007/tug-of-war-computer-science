@@ -20,17 +20,18 @@ class Flag{
         }
 	}
     move(){
-		this.x += this.velocity;
+		/*this.x += this.velocity;
 		this.velocity *= this.friction
 		if (this.velocity < 0.1 && this.velocity > -0.1) {
 			this.velocity = 0;
-		}
+		}*/
+        this.x += this.velocity;
 
 	}
     moveRight(factor){
-        this.velocity = this.force*factor
+        this.velocity += this.force*factor
     }
     moveLeft(factor){
-        this.velocity = -this.force*factor
+        this.velocity += -this.force*factor
     }
 }

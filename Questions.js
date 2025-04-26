@@ -233,11 +233,13 @@ class Questions {
       
         // Avoid division by 0
         b = b === 0 ? 1 : b;
-      
+
         let questionStr, answer;
-      
-      
-        let distractors = this.generateDistractors(answer, 5, true);
+        answer = a / b;
+        answer = Math.round(answer * 10) / 10;
+        questionStr = `${a} / ${b}`;
+        
+        let distractors = this.generateDistractors(answer, 10, true);
         myQuestion.push(questionStr, answer, ...distractors);
         myQuestion = shuffleArray(myQuestion);
         myQuestion.push(answer);
