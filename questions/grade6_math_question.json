@@ -1,352 +1,352 @@
 [
   {
-    "question": "What is 12 \u00d7 6?",
-    "correct_answer": "72",
-    "incorrect_answer_1": "68",
-    "incorrect_answer_2": "78",
-    "incorrect_answer_3": "70"
+    "question": "What is 7 \u00d7 8?",
+    "correct_answer": "56",
+    "incorrect_answer_1": "48",
+    "incorrect_answer_2": "64",
+    "incorrect_answer_3": "54"
   },
   {
-    "question": "Which number is greater: 0.85 or 0.58?",
-    "correct_answer": "0.85",
-    "incorrect_answer_1": "0.58",
-    "incorrect_answer_2": "0.50",
-    "incorrect_answer_3": "0.75"
+    "question": "What is the square root of 49?",
+    "correct_answer": "7",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "8",
+    "incorrect_answer_3": "9"
   },
   {
-    "question": "What is 25% of 100?",
-    "correct_answer": "25",
-    "incorrect_answer_1": "50",
-    "incorrect_answer_2": "20",
+    "question": "What is 25% of 200?",
+    "correct_answer": "50",
+    "incorrect_answer_1": "25",
+    "incorrect_answer_2": "75",
+    "incorrect_answer_3": "100"
+  },
+  {
+    "question": "What is the value of the digit 3 in 3,482?",
+    "correct_answer": "3000",
+    "incorrect_answer_1": "300",
+    "incorrect_answer_2": "30",
+    "incorrect_answer_3": "3"
+  },
+  {
+    "question": "Which is greater: 0.45 or 0.54?",
+    "correct_answer": "0.54",
+    "incorrect_answer_1": "0.45",
+    "incorrect_answer_2": "0.40",
+    "incorrect_answer_3": "0.50"
+  },
+  {
+    "question": "Which is equivalent to 1/2?",
+    "correct_answer": "0.5",
+    "incorrect_answer_1": "0.25",
+    "incorrect_answer_2": "0.75",
+    "incorrect_answer_3": "1.5"
+  },
+  {
+    "question": "What is 15% of 200?",
+    "correct_answer": "30",
+    "incorrect_answer_1": "25",
+    "incorrect_answer_2": "35",
+    "incorrect_answer_3": "20"
+  },
+  {
+    "question": "What is 0.8 \u00d7 10?",
+    "correct_answer": "8",
+    "incorrect_answer_1": "80",
+    "incorrect_answer_2": "0.08",
     "incorrect_answer_3": "10"
   },
   {
-    "question": "Which is a prime number?",
+    "question": "Which number is greater: -2 or -5?",
+    "correct_answer": "-2",
+    "incorrect_answer_1": "-5",
+    "incorrect_answer_2": "-1",
+    "incorrect_answer_3": "2"
+  },
+  {
+    "question": "What is the product of 5 and 12?",
+    "correct_answer": "60",
+    "incorrect_answer_1": "50",
+    "incorrect_answer_2": "55",
+    "incorrect_answer_3": "65"
+  },
+  {
+    "question": "What is 10% of 90?",
+    "correct_answer": "9",
+    "incorrect_answer_1": "10",
+    "incorrect_answer_2": "8",
+    "incorrect_answer_3": "11"
+  },
+  {
+    "question": "What is 10% of 90?",
+    "correct_answer": "9",
+    "incorrect_answer_1": "10",
+    "incorrect_answer_2": "8",
+    "incorrect_answer_3": "11"
+  },
+  {
+    "question": "What is the value of 5\u00b3?",
+    "correct_answer": "125",
+    "incorrect_answer_1": "25",
+    "incorrect_answer_2": "100",
+    "incorrect_answer_3": "150"
+  },
+  {
+    "question": "Which is equivalent to 1/2?",
+    "correct_answer": "0.5",
+    "incorrect_answer_1": "0.25",
+    "incorrect_answer_2": "0.75",
+    "incorrect_answer_3": "1.5"
+  },
+  {
+    "question": "Which number is divisible by 3?",
+    "correct_answer": "21",
+    "incorrect_answer_1": "22",
+    "incorrect_answer_2": "25",
+    "incorrect_answer_3": "20"
+  },
+  {
+    "question": "What is the value of 5\u00b3?",
+    "correct_answer": "125",
+    "incorrect_answer_1": "25",
+    "incorrect_answer_2": "100",
+    "incorrect_answer_3": "150"
+  },
+  {
+    "question": "What is the sum of 3.4 + 1.6?",
+    "correct_answer": "5.0",
+    "incorrect_answer_1": "4.0",
+    "incorrect_answer_2": "4.8",
+    "incorrect_answer_3": "5.2"
+  },
+  {
+    "question": "Which number is greater: -2 or -5?",
+    "correct_answer": "-2",
+    "incorrect_answer_1": "-5",
+    "incorrect_answer_2": "-1",
+    "incorrect_answer_3": "2"
+  },
+  {
+    "question": "What is the opposite of -7?",
+    "correct_answer": "7",
+    "incorrect_answer_1": "-6",
+    "incorrect_answer_2": "-8",
+    "incorrect_answer_3": "-9"
+  },
+  {
+    "question": "Which number is greater: -2 or -5?",
+    "correct_answer": "-2",
+    "incorrect_answer_1": "-5",
+    "incorrect_answer_2": "-1",
+    "incorrect_answer_3": "2"
+  },
+  {
+    "question": "What is the value of 5\u00b3?",
+    "correct_answer": "125",
+    "incorrect_answer_1": "25",
+    "incorrect_answer_2": "100",
+    "incorrect_answer_3": "150"
+  },
+  {
+    "question": "What is 15% of 200?",
+    "correct_answer": "30",
+    "incorrect_answer_1": "25",
+    "incorrect_answer_2": "35",
+    "incorrect_answer_3": "20"
+  },
+  {
+    "question": "What is the sum of 3.4 + 1.6?",
+    "correct_answer": "5.0",
+    "incorrect_answer_1": "4.0",
+    "incorrect_answer_2": "4.8",
+    "incorrect_answer_3": "5.2"
+  },
+  {
+    "question": "What is the value of 5\u00b3?",
+    "correct_answer": "125",
+    "incorrect_answer_1": "25",
+    "incorrect_answer_2": "100",
+    "incorrect_answer_3": "150"
+  },
+  {
+    "question": "What is the value of 5\u00b3?",
+    "correct_answer": "125",
+    "incorrect_answer_1": "25",
+    "incorrect_answer_2": "100",
+    "incorrect_answer_3": "150"
+  },
+  {
+    "question": "Which fraction equals 0.25?",
+    "correct_answer": "1/4",
+    "incorrect_answer_1": "1/3",
+    "incorrect_answer_2": "2/5",
+    "incorrect_answer_3": "3/4"
+  },
+  {
+    "question": "What is the product of 9 \u00d7 5?",
+    "correct_answer": "45",
+    "incorrect_answer_1": "40",
+    "incorrect_answer_2": "50",
+    "incorrect_answer_3": "35"
+  },
+  {
+    "question": "Which is equivalent to 1/2?",
+    "correct_answer": "0.5",
+    "incorrect_answer_1": "0.25",
+    "incorrect_answer_2": "0.75",
+    "incorrect_answer_3": "1.5"
+  },
+  {
+    "question": "What is 0.8 \u00d7 10?",
+    "correct_answer": "8",
+    "incorrect_answer_1": "80",
+    "incorrect_answer_2": "0.08",
+    "incorrect_answer_3": "10"
+  },
+  {
+    "question": "What is the sum of 3.4 + 1.6?",
+    "correct_answer": "5.0",
+    "incorrect_answer_1": "4.0",
+    "incorrect_answer_2": "4.8",
+    "incorrect_answer_3": "5.2"
+  },
+  {
+    "question": "What is 1000 \u00f7 10?",
+    "correct_answer": "100",
+    "incorrect_answer_1": "10",
+    "incorrect_answer_2": "1000",
+    "incorrect_answer_3": "90"
+  },
+  {
+    "question": "Which fraction equals 0.25?",
+    "correct_answer": "1/4",
+    "incorrect_answer_1": "1/3",
+    "incorrect_answer_2": "2/5",
+    "incorrect_answer_3": "3/4"
+  },
+  {
+    "question": "What is the value of 5\u00b3?",
+    "correct_answer": "125",
+    "incorrect_answer_1": "25",
+    "incorrect_answer_2": "100",
+    "incorrect_answer_3": "150"
+  },
+  {
+    "question": "What is 0.8 \u00d7 10?",
+    "correct_answer": "8",
+    "incorrect_answer_1": "80",
+    "incorrect_answer_2": "0.08",
+    "incorrect_answer_3": "10"
+  },
+  {
+    "question": "Which is equivalent to 1/2?",
+    "correct_answer": "0.5",
+    "incorrect_answer_1": "0.25",
+    "incorrect_answer_2": "0.75",
+    "incorrect_answer_3": "1.5"
+  },
+  {
+    "question": "What is the opposite of -7?",
+    "correct_answer": "7",
+    "incorrect_answer_1": "-6",
+    "incorrect_answer_2": "-8",
+    "incorrect_answer_3": "-9"
+  },
+  {
+    "question": "Round 2.76 to the nearest tenth.",
+    "correct_answer": "2.8",
+    "incorrect_answer_1": "2.7",
+    "incorrect_answer_2": "2.6",
+    "incorrect_answer_3": "3.0"
+  },
+  {
+    "question": "What is 0.8 \u00d7 10?",
+    "correct_answer": "8",
+    "incorrect_answer_1": "80",
+    "incorrect_answer_2": "0.08",
+    "incorrect_answer_3": "10"
+  },
+  {
+    "question": "What is 1000 \u00f7 10?",
+    "correct_answer": "100",
+    "incorrect_answer_1": "10",
+    "incorrect_answer_2": "1000",
+    "incorrect_answer_3": "90"
+  },
+  {
+    "question": "What is the product of 9 \u00d7 5?",
+    "correct_answer": "45",
+    "incorrect_answer_1": "40",
+    "incorrect_answer_2": "50",
+    "incorrect_answer_3": "35"
+  },
+  {
+    "question": "What is the product of 9 \u00d7 5?",
+    "correct_answer": "45",
+    "incorrect_answer_1": "40",
+    "incorrect_answer_2": "50",
+    "incorrect_answer_3": "35"
+  },
+  {
+    "question": "Which fraction equals 0.25?",
+    "correct_answer": "1/4",
+    "incorrect_answer_1": "1/3",
+    "incorrect_answer_2": "2/5",
+    "incorrect_answer_3": "3/4"
+  },
+  {
+    "question": "What is 1000 \u00f7 10?",
+    "correct_answer": "100",
+    "incorrect_answer_1": "10",
+    "incorrect_answer_2": "1000",
+    "incorrect_answer_3": "90"
+  },
+  {
+    "question": "What is 10% of 90?",
+    "correct_answer": "9",
+    "incorrect_answer_1": "10",
+    "incorrect_answer_2": "8",
+    "incorrect_answer_3": "11"
+  },
+  {
+    "question": "What is the value of 5\u00b3?",
+    "correct_answer": "125",
+    "incorrect_answer_1": "25",
+    "incorrect_answer_2": "100",
+    "incorrect_answer_3": "150"
+  },
+  {
+    "question": "Which number is a prime number?",
     "correct_answer": "11",
-    "incorrect_answer_1": "12",
-    "incorrect_answer_2": "14",
+    "incorrect_answer_1": "9",
+    "incorrect_answer_2": "12",
     "incorrect_answer_3": "15"
   },
   {
-    "question": "What is 1/2 + 1/2?",
-    "correct_answer": "1",
-    "incorrect_answer_1": "2",
-    "incorrect_answer_2": "1/4",
-    "incorrect_answer_3": "1/3"
-  },
-  {
-    "question": "What is 10% of 200?",
-    "correct_answer": "20",
-    "incorrect_answer_1": "10",
-    "incorrect_answer_2": "30",
-    "incorrect_answer_3": "25"
-  },
-  {
-    "question": "Which number is a multiple of 8?",
-    "correct_answer": "32",
-    "incorrect_answer_1": "30",
-    "incorrect_answer_2": "36",
-    "incorrect_answer_3": "38"
-  },
-  {
-    "question": "Which number is a multiple of 8?",
-    "correct_answer": "32",
-    "incorrect_answer_1": "30",
-    "incorrect_answer_2": "36",
-    "incorrect_answer_3": "38"
-  },
-  {
-    "question": "What is 10% of 200?",
-    "correct_answer": "20",
-    "incorrect_answer_1": "10",
-    "incorrect_answer_2": "30",
-    "incorrect_answer_3": "25"
-  },
-  {
-    "question": "What is the mode of 3, 3, 4, 5, 3?",
-    "correct_answer": "3",
-    "incorrect_answer_1": "4",
-    "incorrect_answer_2": "5",
-    "incorrect_answer_3": "None"
-  },
-  {
-    "question": "What is the product of 4 and 25?",
-    "correct_answer": "100",
-    "incorrect_answer_1": "50",
-    "incorrect_answer_2": "125",
-    "incorrect_answer_3": "75"
-  },
-  {
-    "question": "What is 75 \u00f7 5?",
-    "correct_answer": "15",
-    "incorrect_answer_1": "10",
+    "question": "Which number is a prime number?",
+    "correct_answer": "11",
+    "incorrect_answer_1": "9",
     "incorrect_answer_2": "12",
-    "incorrect_answer_3": "20"
+    "incorrect_answer_3": "15"
   },
   {
-    "question": "Which number is a decimal with hundredths?",
-    "correct_answer": "0.78",
-    "incorrect_answer_1": "7.8",
-    "incorrect_answer_2": "0.7",
-    "incorrect_answer_3": "0.8"
+    "question": "Which is equivalent to 1/2?",
+    "correct_answer": "0.5",
+    "incorrect_answer_1": "0.25",
+    "incorrect_answer_2": "0.75",
+    "incorrect_answer_3": "1.5"
   },
   {
-    "question": "What is 75 \u00f7 5?",
-    "correct_answer": "15",
-    "incorrect_answer_1": "10",
-    "incorrect_answer_2": "12",
-    "incorrect_answer_3": "20"
-  },
-  {
-    "question": "Which is a mixed number?",
-    "correct_answer": "1 1/2",
-    "incorrect_answer_1": "1/2",
-    "incorrect_answer_2": "2/2",
-    "incorrect_answer_3": "3/4"
-  },
-  {
-    "question": "What is 0.01 \u00d7 600?",
-    "correct_answer": "6",
-    "incorrect_answer_1": "60",
-    "incorrect_answer_2": "0.6",
-    "incorrect_answer_3": "0.06"
-  },
-  {
-    "question": "Which is equivalent to 0.5?",
-    "correct_answer": "1/2",
-    "incorrect_answer_1": "2/4",
-    "incorrect_answer_2": "3/5",
-    "incorrect_answer_3": "1/3"
-  },
-  {
-    "question": "What is 75 \u00f7 5?",
-    "correct_answer": "15",
-    "incorrect_answer_1": "10",
-    "incorrect_answer_2": "12",
-    "incorrect_answer_3": "20"
-  },
-  {
-    "question": "Which is equivalent to 0.5?",
-    "correct_answer": "1/2",
-    "incorrect_answer_1": "2/4",
-    "incorrect_answer_2": "3/5",
-    "incorrect_answer_3": "1/3"
-  },
-  {
-    "question": "What is 0.01 \u00d7 600?",
-    "correct_answer": "6",
-    "incorrect_answer_1": "60",
-    "incorrect_answer_2": "0.6",
-    "incorrect_answer_3": "0.06"
-  },
-  {
-    "question": "What is 0.01 \u00d7 600?",
-    "correct_answer": "6",
-    "incorrect_answer_1": "60",
-    "incorrect_answer_2": "0.6",
-    "incorrect_answer_3": "0.06"
-  },
-  {
-    "question": "What is the value of the digit 7 in 78 432?",
-    "correct_answer": "70 000",
-    "incorrect_answer_1": "7000",
-    "incorrect_answer_2": "700",
-    "incorrect_answer_3": "7"
-  },
-  {
-    "question": "What is the mode of 3, 3, 4, 5, 3?",
-    "correct_answer": "3",
-    "incorrect_answer_1": "4",
-    "incorrect_answer_2": "5",
-    "incorrect_answer_3": "None"
-  },
-  {
-    "question": "Which is equivalent to 0.5?",
-    "correct_answer": "1/2",
-    "incorrect_answer_1": "2/4",
-    "incorrect_answer_2": "3/5",
-    "incorrect_answer_3": "1/3"
-  },
-  {
-    "question": "What is the mode of 3, 3, 4, 5, 3?",
-    "correct_answer": "3",
-    "incorrect_answer_1": "4",
-    "incorrect_answer_2": "5",
-    "incorrect_answer_3": "None"
-  },
-  {
-    "question": "What number is halfway between 40 and 60?",
-    "correct_answer": "50",
-    "incorrect_answer_1": "45",
-    "incorrect_answer_2": "55",
-    "incorrect_answer_3": "52"
-  },
-  {
-    "question": "What is the mode of 3, 3, 4, 5, 3?",
-    "correct_answer": "3",
-    "incorrect_answer_1": "4",
-    "incorrect_answer_2": "5",
-    "incorrect_answer_3": "None"
-  },
-  {
-    "question": "What is 0.01 \u00d7 600?",
-    "correct_answer": "6",
-    "incorrect_answer_1": "60",
-    "incorrect_answer_2": "0.6",
-    "incorrect_answer_3": "0.06"
-  },
-  {
-    "question": "Which is a mixed number?",
-    "correct_answer": "1 1/2",
-    "incorrect_answer_1": "1/2",
-    "incorrect_answer_2": "2/2",
-    "incorrect_answer_3": "3/4"
-  },
-  {
-    "question": "What is the product of 4 and 25?",
-    "correct_answer": "100",
-    "incorrect_answer_1": "50",
-    "incorrect_answer_2": "125",
-    "incorrect_answer_3": "75"
-  },
-  {
-    "question": "Which number is a multiple of 8?",
-    "correct_answer": "32",
-    "incorrect_answer_1": "30",
-    "incorrect_answer_2": "36",
-    "incorrect_answer_3": "38"
-  },
-  {
-    "question": "What is 10% of 200?",
-    "correct_answer": "20",
-    "incorrect_answer_1": "10",
-    "incorrect_answer_2": "30",
-    "incorrect_answer_3": "25"
-  },
-  {
-    "question": "What is 10% of 200?",
-    "correct_answer": "20",
-    "incorrect_answer_1": "10",
-    "incorrect_answer_2": "30",
-    "incorrect_answer_3": "25"
-  },
-  {
-    "question": "What is 75 \u00f7 5?",
-    "correct_answer": "15",
-    "incorrect_answer_1": "10",
-    "incorrect_answer_2": "12",
-    "incorrect_answer_3": "20"
-  },
-  {
-    "question": "What is 0.1 \u00d7 50?",
-    "correct_answer": "5",
-    "incorrect_answer_1": "50",
-    "incorrect_answer_2": "0.5",
+    "question": "What is 0.8 \u00d7 10?",
+    "correct_answer": "8",
+    "incorrect_answer_1": "80",
+    "incorrect_answer_2": "0.08",
     "incorrect_answer_3": "10"
   },
   {
-    "question": "Which number is a decimal with hundredths?",
-    "correct_answer": "0.78",
-    "incorrect_answer_1": "7.8",
-    "incorrect_answer_2": "0.7",
-    "incorrect_answer_3": "0.8"
-  },
-  {
-    "question": "Which number is a decimal with hundredths?",
-    "correct_answer": "0.78",
-    "incorrect_answer_1": "7.8",
-    "incorrect_answer_2": "0.7",
-    "incorrect_answer_3": "0.8"
-  },
-  {
-    "question": "Which number is a multiple of 8?",
-    "correct_answer": "32",
-    "incorrect_answer_1": "30",
-    "incorrect_answer_2": "36",
-    "incorrect_answer_3": "38"
-  },
-  {
-    "question": "Which is a mixed number?",
-    "correct_answer": "1 1/2",
-    "incorrect_answer_1": "1/2",
-    "incorrect_answer_2": "2/2",
-    "incorrect_answer_3": "3/4"
-  },
-  {
-    "question": "What is the product of 4 and 25?",
-    "correct_answer": "100",
-    "incorrect_answer_1": "50",
-    "incorrect_answer_2": "125",
-    "incorrect_answer_3": "75"
-  },
-  {
-    "question": "What is 10% of 200?",
-    "correct_answer": "20",
-    "incorrect_answer_1": "10",
-    "incorrect_answer_2": "30",
-    "incorrect_answer_3": "25"
-  },
-  {
-    "question": "Which number is a multiple of 8?",
-    "correct_answer": "32",
-    "incorrect_answer_1": "30",
-    "incorrect_answer_2": "36",
-    "incorrect_answer_3": "38"
-  },
-  {
-    "question": "What is 75 \u00f7 5?",
-    "correct_answer": "15",
-    "incorrect_answer_1": "10",
-    "incorrect_answer_2": "12",
-    "incorrect_answer_3": "20"
-  },
-  {
-    "question": "Which number is a multiple of 8?",
-    "correct_answer": "32",
-    "incorrect_answer_1": "30",
-    "incorrect_answer_2": "36",
-    "incorrect_answer_3": "38"
-  },
-  {
-    "question": "What is 10% of 200?",
-    "correct_answer": "20",
-    "incorrect_answer_1": "10",
-    "incorrect_answer_2": "30",
-    "incorrect_answer_3": "25"
-  },
-  {
-    "question": "What is the product of 4 and 25?",
-    "correct_answer": "100",
-    "incorrect_answer_1": "50",
-    "incorrect_answer_2": "125",
-    "incorrect_answer_3": "75"
-  },
-  {
-    "question": "Which number is a multiple of 8?",
-    "correct_answer": "32",
-    "incorrect_answer_1": "30",
-    "incorrect_answer_2": "36",
-    "incorrect_answer_3": "38"
-  },
-  {
-    "question": "What is 0.1 \u00d7 50?",
-    "correct_answer": "5",
-    "incorrect_answer_1": "50",
-    "incorrect_answer_2": "0.5",
-    "incorrect_answer_3": "10"
-  },
-  {
-    "question": "What is 9 squared?",
-    "correct_answer": "81",
-    "incorrect_answer_1": "72",
-    "incorrect_answer_2": "91",
-    "incorrect_answer_3": "63"
-  },
-  {
-    "question": "Which number is a multiple of 8?",
-    "correct_answer": "32",
-    "incorrect_answer_1": "30",
-    "incorrect_answer_2": "36",
-    "incorrect_answer_3": "38"
+    "question": "Which is equivalent to 1/2?",
+    "correct_answer": "0.5",
+    "incorrect_answer_1": "0.25",
+    "incorrect_answer_2": "0.75",
+    "incorrect_answer_3": "1.5"
   }
 ]

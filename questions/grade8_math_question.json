@@ -1,0 +1,352 @@
+[
+  {
+    "question": "What is the square root of 36?",
+    "correct_answer": "6",
+    "incorrect_answer_1": "5",
+    "incorrect_answer_2": "7",
+    "incorrect_answer_3": "8"
+  },
+  {
+    "question": "What is 10% of 400?",
+    "correct_answer": "40",
+    "incorrect_answer_1": "4",
+    "incorrect_answer_2": "400",
+    "incorrect_answer_3": "10"
+  },
+  {
+    "question": "Which number is a rational number?",
+    "correct_answer": "1/2",
+    "incorrect_answer_1": "\u221a3",
+    "incorrect_answer_2": "\u03c0",
+    "incorrect_answer_3": "e"
+  },
+  {
+    "question": "What is 5\u00b2?",
+    "correct_answer": "25",
+    "incorrect_answer_1": "20",
+    "incorrect_answer_2": "15",
+    "incorrect_answer_3": "30"
+  },
+  {
+    "question": "What decimal equals 50%?",
+    "correct_answer": "0.5",
+    "incorrect_answer_1": "0.05",
+    "incorrect_answer_2": "5.0",
+    "incorrect_answer_3": "0.05"
+  },
+  {
+    "question": "What is 1/4 as a decimal?",
+    "correct_answer": "0.25",
+    "incorrect_answer_1": "0.4",
+    "incorrect_answer_2": "0.2",
+    "incorrect_answer_3": "0.5"
+  },
+  {
+    "question": "Which number is greater: -5 or -10?",
+    "correct_answer": "-5",
+    "incorrect_answer_1": "-10",
+    "incorrect_answer_2": "5",
+    "incorrect_answer_3": "0"
+  },
+  {
+    "question": "What is the result of -7 + 12?",
+    "correct_answer": "5",
+    "incorrect_answer_1": "-5",
+    "incorrect_answer_2": "3",
+    "incorrect_answer_3": "2"
+  },
+  {
+    "question": "What is 20% of 150?",
+    "correct_answer": "30",
+    "incorrect_answer_1": "20",
+    "incorrect_answer_2": "15",
+    "incorrect_answer_3": "35"
+  },
+  {
+    "question": "Which number is greater: -5 or -10?",
+    "correct_answer": "-5",
+    "incorrect_answer_1": "-10",
+    "incorrect_answer_2": "5",
+    "incorrect_answer_3": "0"
+  },
+  {
+    "question": "What is 0.25 as a percent?",
+    "correct_answer": "25%",
+    "incorrect_answer_1": "2.5%",
+    "incorrect_answer_2": "0.25%",
+    "incorrect_answer_3": "0.5%"
+  },
+  {
+    "question": "What is 20% of 150?",
+    "correct_answer": "30",
+    "incorrect_answer_1": "20",
+    "incorrect_answer_2": "15",
+    "incorrect_answer_3": "35"
+  },
+  {
+    "question": "Which value is closest to \u221a50?",
+    "correct_answer": "7",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "8",
+    "incorrect_answer_3": "9"
+  },
+  {
+    "question": "What is 12 \u00d7 12?",
+    "correct_answer": "144",
+    "incorrect_answer_1": "124",
+    "incorrect_answer_2": "134",
+    "incorrect_answer_3": "154"
+  },
+  {
+    "question": "What is 12 \u00d7 12?",
+    "correct_answer": "144",
+    "incorrect_answer_1": "124",
+    "incorrect_answer_2": "134",
+    "incorrect_answer_3": "154"
+  },
+  {
+    "question": "Which value is closest to \u221a50?",
+    "correct_answer": "7",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "8",
+    "incorrect_answer_3": "9"
+  },
+  {
+    "question": "What is 1/4 as a decimal?",
+    "correct_answer": "0.25",
+    "incorrect_answer_1": "0.4",
+    "incorrect_answer_2": "0.2",
+    "incorrect_answer_3": "0.5"
+  },
+  {
+    "question": "Which is an irrational number?",
+    "correct_answer": "\u03c0",
+    "incorrect_answer_1": "3/4",
+    "incorrect_answer_2": "0.5",
+    "incorrect_answer_3": "1/3"
+  },
+  {
+    "question": "What is the square root of 81?",
+    "correct_answer": "9",
+    "incorrect_answer_1": "8",
+    "incorrect_answer_2": "7",
+    "incorrect_answer_3": "6"
+  },
+  {
+    "question": "What is 10\u207b\u00b2?",
+    "correct_answer": "0.01",
+    "incorrect_answer_1": "0.1",
+    "incorrect_answer_2": "0.001",
+    "incorrect_answer_3": "1"
+  },
+  {
+    "question": "Which number is greater: -5 or -10?",
+    "correct_answer": "-5",
+    "incorrect_answer_1": "-10",
+    "incorrect_answer_2": "5",
+    "incorrect_answer_3": "0"
+  },
+  {
+    "question": "What is 1/4 as a decimal?",
+    "correct_answer": "0.25",
+    "incorrect_answer_1": "0.4",
+    "incorrect_answer_2": "0.2",
+    "incorrect_answer_3": "0.5"
+  },
+  {
+    "question": "What is 10\u207b\u00b2?",
+    "correct_answer": "0.01",
+    "incorrect_answer_1": "0.1",
+    "incorrect_answer_2": "0.001",
+    "incorrect_answer_3": "1"
+  },
+  {
+    "question": "What is 50% of 90?",
+    "correct_answer": "45",
+    "incorrect_answer_1": "50",
+    "incorrect_answer_2": "40",
+    "incorrect_answer_3": "35"
+  },
+  {
+    "question": "What is 2\u00b3?",
+    "correct_answer": "8",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "9",
+    "incorrect_answer_3": "4"
+  },
+  {
+    "question": "What is 12 \u00d7 12?",
+    "correct_answer": "144",
+    "incorrect_answer_1": "124",
+    "incorrect_answer_2": "134",
+    "incorrect_answer_3": "154"
+  },
+  {
+    "question": "What is 2\u00b3?",
+    "correct_answer": "8",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "9",
+    "incorrect_answer_3": "4"
+  },
+  {
+    "question": "Which fraction equals 0.5?",
+    "correct_answer": "1/2",
+    "incorrect_answer_1": "1/4",
+    "incorrect_answer_2": "2/5",
+    "incorrect_answer_3": "3/4"
+  },
+  {
+    "question": "What is 1/4 as a decimal?",
+    "correct_answer": "0.25",
+    "incorrect_answer_1": "0.4",
+    "incorrect_answer_2": "0.2",
+    "incorrect_answer_3": "0.5"
+  },
+  {
+    "question": "What is 50% of 90?",
+    "correct_answer": "45",
+    "incorrect_answer_1": "50",
+    "incorrect_answer_2": "40",
+    "incorrect_answer_3": "35"
+  },
+  {
+    "question": "Which value is closest to \u221a50?",
+    "correct_answer": "7",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "8",
+    "incorrect_answer_3": "9"
+  },
+  {
+    "question": "Which value is closest to \u221a50?",
+    "correct_answer": "7",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "8",
+    "incorrect_answer_3": "9"
+  },
+  {
+    "question": "What is 0.25 as a percent?",
+    "correct_answer": "25%",
+    "incorrect_answer_1": "2.5%",
+    "incorrect_answer_2": "0.25%",
+    "incorrect_answer_3": "0.5%"
+  },
+  {
+    "question": "What is 1/4 as a decimal?",
+    "correct_answer": "0.25",
+    "incorrect_answer_1": "0.4",
+    "incorrect_answer_2": "0.2",
+    "incorrect_answer_3": "0.5"
+  },
+  {
+    "question": "What is 2\u00b3?",
+    "correct_answer": "8",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "9",
+    "incorrect_answer_3": "4"
+  },
+  {
+    "question": "What is 10\u207b\u00b2?",
+    "correct_answer": "0.01",
+    "incorrect_answer_1": "0.1",
+    "incorrect_answer_2": "0.001",
+    "incorrect_answer_3": "1"
+  },
+  {
+    "question": "What is 0.25 as a percent?",
+    "correct_answer": "25%",
+    "incorrect_answer_1": "2.5%",
+    "incorrect_answer_2": "0.25%",
+    "incorrect_answer_3": "0.5%"
+  },
+  {
+    "question": "What is the scientific notation of 5,000?",
+    "correct_answer": "5 \u00d7 10\u00b3",
+    "incorrect_answer_1": "5 \u00d7 10\u00b2",
+    "incorrect_answer_2": "5 \u00d7 10\u2074",
+    "incorrect_answer_3": "50 \u00d7 10\u00b2"
+  },
+  {
+    "question": "Which fraction equals 0.5?",
+    "correct_answer": "1/2",
+    "incorrect_answer_1": "1/4",
+    "incorrect_answer_2": "2/5",
+    "incorrect_answer_3": "3/4"
+  },
+  {
+    "question": "What is 20% of 150?",
+    "correct_answer": "30",
+    "incorrect_answer_1": "20",
+    "incorrect_answer_2": "15",
+    "incorrect_answer_3": "35"
+  },
+  {
+    "question": "Which number is greater: -5 or -10?",
+    "correct_answer": "-5",
+    "incorrect_answer_1": "-10",
+    "incorrect_answer_2": "5",
+    "incorrect_answer_3": "0"
+  },
+  {
+    "question": "What is 2\u00b3?",
+    "correct_answer": "8",
+    "incorrect_answer_1": "6",
+    "incorrect_answer_2": "9",
+    "incorrect_answer_3": "4"
+  },
+  {
+    "question": "Which fraction equals 0.5?",
+    "correct_answer": "1/2",
+    "incorrect_answer_1": "1/4",
+    "incorrect_answer_2": "2/5",
+    "incorrect_answer_3": "3/4"
+  },
+  {
+    "question": "What is the square root of 81?",
+    "correct_answer": "9",
+    "incorrect_answer_1": "8",
+    "incorrect_answer_2": "7",
+    "incorrect_answer_3": "6"
+  },
+  {
+    "question": "What is 12 \u00d7 12?",
+    "correct_answer": "144",
+    "incorrect_answer_1": "124",
+    "incorrect_answer_2": "134",
+    "incorrect_answer_3": "154"
+  },
+  {
+    "question": "What is 12 \u00d7 12?",
+    "correct_answer": "144",
+    "incorrect_answer_1": "124",
+    "incorrect_answer_2": "134",
+    "incorrect_answer_3": "154"
+  },
+  {
+    "question": "What is the square root of 81?",
+    "correct_answer": "9",
+    "incorrect_answer_1": "8",
+    "incorrect_answer_2": "7",
+    "incorrect_answer_3": "6"
+  },
+  {
+    "question": "Which is an irrational number?",
+    "correct_answer": "\u03c0",
+    "incorrect_answer_1": "3/4",
+    "incorrect_answer_2": "0.5",
+    "incorrect_answer_3": "1/3"
+  },
+  {
+    "question": "What is 12 \u00d7 12?",
+    "correct_answer": "144",
+    "incorrect_answer_1": "124",
+    "incorrect_answer_2": "134",
+    "incorrect_answer_3": "154"
+  },
+  {
+    "question": "What is 0.25 as a percent?",
+    "correct_answer": "25%",
+    "incorrect_answer_1": "2.5%",
+    "incorrect_answer_2": "0.25%",
+    "incorrect_answer_3": "0.5%"
+  }
+]

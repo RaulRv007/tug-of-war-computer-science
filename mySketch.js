@@ -186,6 +186,7 @@ function preload() {
   grade5_questions_math = loadJSON('./questions/grade5_math_question.json')
   grade6_questions_math = loadJSON('./questions/grade6_math_question.json')
   grade7_questions_math = loadJSON('./questions/grade7_math_question.json')
+  grade8_questions_math = loadJSON('./questions/grade8_math_question.json')
   custom_question = loadJSON('./questions/quiz.json')
   characters1SpriteSheet = loadImage('assets/animatedCharacter.png')
   characters2SpriteSheet = loadImage('assets/animatedCharacter1.png')
